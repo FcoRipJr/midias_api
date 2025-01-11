@@ -13,7 +13,7 @@ class Models {
             "updated_formated" => null,
             "midias" => [],
             "sessions" => [],
-            "coments" => [],
+            "comments" => [],
         ];
     }
 
@@ -76,7 +76,7 @@ class Models {
             "updated_formated" => null,
             "users" => [],
             "genres" => [],
-            "coments" => [],
+            "comments" => [],
         ];
     }
 
@@ -94,7 +94,7 @@ class Models {
             "updated" => null,
             "created_formated" => null,
             "updated_formated" => null,
-            "coments" => [],
+            "comments" => [],
         ];
     }
 
@@ -114,12 +114,12 @@ class Models {
             "end_formated" => null,
             "created_formated" => null,
             "updated_formated" => null,
-            "coments" => [],
+            "comments" => [],
         ];
     }
 
     
-    public static function coment(){
+    public static function comment(){
         return(object)[
             "id" => null,
             "id_user" => null,

@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__."/../../src/db/connect_db.php";
 require_once __DIR__."/../../src/model/models.php";
-require_once __DIR__."/../../src/dao/comentdao.php";
+require_once __DIR__."/../../src/dao/commentdao.php";
 require_once __DIR__."/../../src/dao/genredao.php";
 require_once __DIR__."/../../src/dao/userdao.php";
 
 class MidiaDAO {
-    public static function get(object $filter = null, $genres = false, $users = false, $coments = false){
+    public static function get(object $filter = null, $genres = false, $users = false, $comments = false){
         $results = array();
         $param_where = "1=1";
         $order_field = "title";
@@ -117,8 +117,8 @@ class MidiaDAO {
                 if($users===true){
                     $objeto->users = UserDAO::get((object)["id_midia"=>$objeto->id]);
                 }
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_midia"=>$objeto->id]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_midia"=>$objeto->id]);
                 }
                 $results[] = $objeto;
             }
@@ -202,7 +202,7 @@ class MidiaDAO {
         return $objeto;
     }
 
-    public static function find($id, $genres = false, $users = false, $coments = false){
+    public static function find($id, $genres = false, $users = false, $comments = false){
         $objeto = Models::midia();
         try {
             $PDO = connect_db::active();
@@ -236,8 +236,8 @@ class MidiaDAO {
                 if($users===true){
                     $objeto->users = UserDAO::get((object)["id_midia"=>$objeto->id]);
                 }
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_midia"=>$objeto->id]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_midia"=>$objeto->id]);
                 }
             }
         } catch(Exception $e) {

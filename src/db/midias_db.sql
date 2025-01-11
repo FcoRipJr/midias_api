@@ -100,7 +100,7 @@ CREATE TABLE `session` (
     CONSTRAINT `fk_session_midia` FOREIGN KEY (`id_midia`) REFERENCES `midia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
-CREATE TABLE `coment` (
+CREATE TABLE `comment` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `id_user` int(11) NOT NULL,
     `id_midia` int(11) NOT NULL,
@@ -109,10 +109,10 @@ CREATE TABLE `coment` (
     `created` timestamp NOT NULL DEFAULT current_timestamp(),
     `updated` timestamp NULL DEFAULT NULL,
     PRIMARY KEY (`id`),
-    KEY `fk_coment_user_idx` (`id_user`),
-    KEY `fk_coment_midia_idx` (`id_midia`),
-    KEY `fk_coment_session_idx` (`id_session`),
-    CONSTRAINT `fk_coment_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `fk_coment_midia` FOREIGN KEY (`id_midia`) REFERENCES `midia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `fk_coment_session` FOREIGN KEY (`id_session`) REFERENCES `session` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    KEY `fk_comment_user_idx` (`id_user`),
+    KEY `fk_comment_midia_idx` (`id_midia`),
+    KEY `fk_comment_session_idx` (`id_session`),
+    CONSTRAINT `fk_comment_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT `fk_comment_midia` FOREIGN KEY (`id_midia`) REFERENCES `midia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT `fk_comment_session` FOREIGN KEY (`id_session`) REFERENCES `session` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );

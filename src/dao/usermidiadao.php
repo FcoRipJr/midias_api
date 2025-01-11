@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__."/../../src/db/connect_db.php";
 require_once __DIR__."/../../src/model/models.php";
-require_once __DIR__."/../../src/dao/comentdao.php";
+require_once __DIR__."/../../src/dao/commentdao.php";
 
 class UserMidiaDAO {
-    public static function get(object $filter = null, $coments = false){
+    public static function get(object $filter = null, $comments = false){
         $results = array();
         $param_where = "1=1";
         $order_field = "midia";
@@ -96,8 +96,8 @@ class UserMidiaDAO {
                 $objeto->updated = $row->updated ?? null;
                 $objeto->created_formated = Models::convert_date($objeto->created);
                 $objeto->updated_formated = Models::convert_date($objeto->updated);
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_user"=>$objeto->id_user,"id_midia"=>$objeto->id_midia]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_user"=>$objeto->id_user,"id_midia"=>$objeto->id_midia]);
                 }
                 $results[] = $objeto;
             }
@@ -175,7 +175,7 @@ class UserMidiaDAO {
         return $objeto;
     }
 
-    public static function find($id, $coments = false){
+    public static function find($id, $comments = false){
         $objeto = Models::user_midia();
         try {
             $PDO = connect_db::active();
@@ -200,8 +200,8 @@ class UserMidiaDAO {
                 $objeto->updated = $row->updated ?? null;
                 $objeto->created_formated = Models::convert_date($objeto->created);
                 $objeto->updated_formated = Models::convert_date($objeto->updated);
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_user"=>$objeto->id_user,"id_midia"=>$objeto->id_midia]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_user"=>$objeto->id_user,"id_midia"=>$objeto->id_midia]);
                 }
             }
         } catch(Exception $e) {

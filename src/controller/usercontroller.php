@@ -6,11 +6,11 @@ class UserController {
         $response = (object) ["response_code"=>200, "response_data" => []];
         $midias = ($get_fields->midias ?? "" ) == "true" ? true : false;
         $sessions = ($get_fields->sessions ?? "" ) == "true" ? true : false;
-        $coments = ($get_fields->coments ?? "" ) == "true" ? true : false;
+        $comments = ($get_fields->comments ?? "" ) == "true" ? true : false;
         $filter = $get_fields;
         $pages = 1;
         $page = Models::isInt($filter->page??null) ? $filter->page : null;
-        $data = UserDAO::get($filter,$midias, $sessions, $coments);
+        $data = UserDAO::get($filter,$midias, $sessions, $comments);
         $total = count($data);
         $rows = count($data);
         $page_limit = $total;
@@ -28,8 +28,8 @@ class UserController {
         $response = (object) ["response_code"=>200, "response_data" => []];
         $midias = ($get_fields->midias ?? "" ) == "true" ? true : false;
         $sessions = ($get_fields->sessions ?? "" ) == "true" ? true : false;
-        $coments = ($get_fields->coments ?? "" ) == "true" ? true : false;
-        $response->response_data = UserDAO::find($id,$midias, $sessions, $coments);
+        $comments = ($get_fields->comments ?? "" ) == "true" ? true : false;
+        $response->response_data = UserDAO::find($id,$midias, $sessions, $comments);
         return $response;
     }
 

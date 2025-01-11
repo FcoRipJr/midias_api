@@ -2,7 +2,7 @@
 require_once __DIR__."/../../src/db/connect_db.php";
 require_once __DIR__."/../../src/model/models.php";
 
-class ComentDAO {
+class CommentDAO {
     public static function get(object $filter = null){
         $results = array();
         $param_where = "1=1";
@@ -82,7 +82,7 @@ class ComentDAO {
         }
         try {
             $PDO = connect_db::active();
-            $sql = "select c.*, u.name as user, m.title as midia, s.code as session from coment c 
+            $sql = "select c.*, u.name as user, m.title as midia, s.code as session from comment c 
             left join user u on u.id = c.id_user
             left join midia m on m.id = c.id_midia
             left join session s on s.id = c.id_session
@@ -91,7 +91,7 @@ class ComentDAO {
             $stmt = $PDO->prepare($sql);
             $stmt->execute();
             while($row = $stmt -> fetch(PDO::FETCH_OBJ)) {
-                $objeto = Models::coment();
+                $objeto = Models::comment();
                 $objeto->id = $row->id ?? null;
                 $objeto->id_user = $row->id_user ?? null;
                 $objeto->id_midia = $row->id_midia ?? null;
@@ -170,7 +170,7 @@ class ComentDAO {
         }
         try {
             $PDO = connect_db::active();
-            $sql = " select count(*) as total from coment c 
+            $sql = " select count(*) as total from comment c 
                 left join user u on u.id = c.id_user
                 left join midia m on m.id = c.id_midia
                 left join session s on s.id = c.id_session
@@ -190,10 +190,10 @@ class ComentDAO {
     }
 
     public static function find($id){
-        $objeto = Models::coment();
+        $objeto = Models::comment();
         try {
             $PDO = connect_db::active();
-            $sql = "select c.*, u.name as user, m.title as midia, s.code as session from coment c 
+            $sql = "select c.*, u.name as user, m.title as midia, s.code as session from comment c 
             left join user u on u.id = c.id_user
             left join midia m on m.id = c.id_midia
             left join session s on s.id = c.id_session
@@ -220,16 +220,16 @@ class ComentDAO {
         }
         return $objeto;
     }
-    public static function insert($coment){
+    public static function insert($comment){
         try{
             $PDO = connect_db::active();
-            $sql = "INSERT INTO coment (id_user, id_midia, id_session, text)
+            $sql = "INSERT INTO comment (id_user, id_midia, id_session, text)
                             VALUE (:id_user, :id_midia, :id_session, :text);";
             $stmt = $PDO->prepare($sql);
-            $stmt->bindValue(":id_user", $coment->id_user ?? null);
-            $stmt->bindValue(":id_midia", $coment->id_midia ?? null);
-            $stmt->bindValue(":id_session", $coment->id_session ?? null);
-            $stmt->bindValue(":text", $coment->text ?? null);
+            $stmt->bindValue(":id_user", $comment->id_user ?? null);
+            $stmt->bindValue(":id_midia", $comment->id_midia ?? null);
+            $stmt->bindValue(":id_session", $comment->id_session ?? null);
+            $stmt->bindValue(":text", $comment->text ?? null);
             $stmt->execute();
             $ReturnId = $PDO->lastInsertId();
             return $ReturnId;
@@ -238,16 +238,16 @@ class ComentDAO {
         }
     }
 
-    public static function update($coment){
+    public static function update($comment){
         try{
             $PDO = connect_db::active();
-            $sql = "update coment set 
+            $sql = "update comment set 
                 text = :text,
                 updated = current_timestamp()
                 where id = :id ;";
             $stmt = $PDO->prepare($sql);
-            $stmt->bindValue(":text", $coment->text);
-            $stmt->bindValue(":id", $coment->id);
+            $stmt->bindValue(":text", $comment->text);
+            $stmt->bindValue(":id", $comment->id);
             $stmt->execute();
             return ($stmt->rowCount() > 0) ? $stmt->rowCount() : false;
         } catch(Exception $e) {
@@ -258,7 +258,7 @@ class ComentDAO {
     public static function delete($id){
         try {
             $PDO = connect_db::active();
-            $sql = "delete from coment where id = :id;";
+            $sql = "delete from comment where id = :id;";
             $stmt = $PDO->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();

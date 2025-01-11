@@ -6,11 +6,11 @@ class MidiaController {
         $response = (object) ["response_code"=>200, "response_data" => []];
         $genres = ($get_fields->genres ?? "" ) == "true" ? true : false;
         $users = ($get_fields->users ?? "" ) == "true" ? true : false;
-        $coments = ($get_fields->coments ?? "" ) == "true" ? true : false;
+        $comments = ($get_fields->comments ?? "" ) == "true" ? true : false;
         $filter = $get_fields;
         $pages = 1;
         $page = Models::isInt($filter->page??null) ? $filter->page : null;
-        $data = MidiaDAO::get($filter,$genres, $users, $coments);
+        $data = MidiaDAO::get($filter,$genres, $users, $comments);
         $total = count($data);
         $rows = count($data);
         $page_limit = $total;
@@ -28,8 +28,8 @@ class MidiaController {
         $response = (object) ["response_code"=>200, "response_data" => []];
         $genres = ($get_fields->genres ?? "" ) == "true" ? true : false;
         $users = ($get_fields->users ?? "" ) == "true" ? true : false;
-        $coments = ($get_fields->coments ?? "" ) == "true" ? true : false;
-        $response->response_data = MidiaDAO::find($id,$genres, $users, $coments);
+        $comments = ($get_fields->comments ?? "" ) == "true" ? true : false;
+        $response->response_data = MidiaDAO::find($id,$genres, $users, $comments);
         return $response;
     }
 

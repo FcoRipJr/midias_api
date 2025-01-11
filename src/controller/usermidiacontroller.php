@@ -4,11 +4,11 @@ require_once __DIR__."/../../src/dao/usermidiadao.php";
 class UserMidiaController {
     public static function get($get_fields){
         $response = (object) ["response_code"=>200, "response_data" => []];
-        $coments = ($get_fields->coments ?? "" ) == "true" ? true : false;        
+        $comments = ($get_fields->comments ?? "" ) == "true" ? true : false;        
         $filter = $get_fields;
         $pages = 1;
         $page = Models::isInt($filter->page??null) ? $filter->page : null;
-        $data = UserMidiaDAO::get($filter, $coments);
+        $data = UserMidiaDAO::get($filter, $comments);
         $total = count($data);
         $rows = count($data);
         $page_limit = $total;
@@ -24,8 +24,8 @@ class UserMidiaController {
 
     public static function find($id,$get_fields){
         $response = (object) ["response_code"=>200, "response_data" => []];
-        $coments = ($get_fields->coments ?? "" ) == "true" ? true : false;
-        $response->response_data = UserMidiaDAO::find($id, $coments);
+        $comments = ($get_fields->comments ?? "" ) == "true" ? true : false;
+        $response->response_data = UserMidiaDAO::find($id, $comments);
         return $response;
     }
 

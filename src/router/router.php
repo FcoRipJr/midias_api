@@ -22,13 +22,13 @@ class Router {
                 break;
         
             ///midias_api/category
-            case ($method == 'GET' && $uri == '/midias_api/categorys'):
+            case ($method == 'GET' && $uri == '/midias_api/categories'):
                 $response = CategoryController::get($get_fields);
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
                 break;
-            case ($method == 'GET' && preg_match('/\/midias_api\/categorys\/\d+/', $uri)):
-                $response = CategoryController::find(self::get_id_uri($uri, '/midias_api/categorys/'),$get_fields);
+            case ($method == 'GET' && preg_match('/\/midias_api\/categories\/\d+/', $uri)):
+                $response = CategoryController::find(self::get_id_uri($uri, '/midias_api/categories/'),$get_fields);
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
                 break;
@@ -170,29 +170,29 @@ class Router {
                 $http_response = $response->response_data;
                 break;
 
-            ///midias_api/coments
-            case ($method == 'GET' && $uri == '/midias_api/coments'):
-                $response = ComentController::get($get_fields);
+            ///midias_api/comments
+            case ($method == 'GET' && $uri == '/midias_api/comments'):
+                $response = CommentController::get($get_fields);
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
                 break;
-            case ($method == 'GET' && preg_match('/\/midias_api\/coments\/\d+/', $uri)):
-                $response = ComentController::find(self::get_id_uri($uri, '/midias_api/coments/'),$get_fields);
+            case ($method == 'GET' && preg_match('/\/midias_api\/comments\/\d+/', $uri)):
+                $response = CommentController::find(self::get_id_uri($uri, '/midias_api/comments/'),$get_fields);
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
                 break;
-            case ($method == 'POST' && $uri == '/midias_api/coments'):
-                $response = ComentController::post($body_fields);
+            case ($method == 'POST' && $uri == '/midias_api/comments'):
+                $response = CommentController::post($body_fields);
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
                 break;
-            case ($method == 'PUT' && preg_match('/\/midias_api\/coments\/\d+/', $uri)):
-                $response = ComentController::put(self::get_id_uri($uri, '/midias_api/coments/'),$body_fields);
+            case ($method == 'PUT' && preg_match('/\/midias_api\/comments\/\d+/', $uri)):
+                $response = CommentController::put(self::get_id_uri($uri, '/midias_api/comments/'),$body_fields);
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
                 break;
-            case ($method == 'DELETE' && preg_match('/\/midias_api\/coments\/\d+/', $uri)):
-                $response = ComentController::delete(self::get_id_uri($uri, '/midias_api/coments/'));
+            case ($method == 'DELETE' && preg_match('/\/midias_api\/comments\/\d+/', $uri)):
+                $response = CommentController::delete(self::get_id_uri($uri, '/midias_api/comments/'));
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
                 break;

@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__."/../../src/db/connect_db.php";
 require_once __DIR__."/../../src/model/models.php";
-require_once __DIR__."/../../src/dao/comentdao.php";
+require_once __DIR__."/../../src/dao/commentdao.php";
 require_once __DIR__."/../../src/dao/midiadao.php";
 require_once __DIR__."/../../src/dao/sessiondao.php";
 
 class UserDAO {
-    public static function get(object $filter = null, $midias = false, $sessions = false, $coments = false){
+    public static function get(object $filter = null, $midias = false, $sessions = false, $comments = false){
         $results = array();
         $param_where = "1=1";
         $order_field = "name";
@@ -78,8 +78,8 @@ class UserDAO {
                 if($sessions===true){
                     $objeto->sessions = SessionDAO::get((object)["id_user"=>$objeto->id]);
                 }
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_user"=>$objeto->id]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_user"=>$objeto->id]);
                 }
                 $results[] = $objeto;
             }
@@ -138,7 +138,7 @@ class UserDAO {
         return $objeto;
     }
 
-    public static function find($id, $midias = false, $sessions = false, $coments = false){
+    public static function find($id, $midias = false, $sessions = false, $comments = false){
         $objeto = Models::user();
         try {
             $PDO = connect_db::active();
@@ -160,8 +160,8 @@ class UserDAO {
                 if($sessions===true){
                     $objeto->sessions = SessionDAO::get((object)["id_user"=>$objeto->id]);
                 }
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_user"=>$objeto->id]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_user"=>$objeto->id]);
                 }
             }
         } catch(Exception $e) {
@@ -170,7 +170,7 @@ class UserDAO {
         return $objeto;
     }
 
-    public static function login($name, $password, $midias = false, $sessions = false, $coments = false){
+    public static function login($name, $password, $midias = false, $sessions = false, $comments = false){
         $objeto = Models::user();
         try {
             $PDO = connect_db::active();
@@ -192,8 +192,8 @@ class UserDAO {
                 if($sessions===true){
                     $objeto->sessions = SessionDAO::get((object)["id_user"=>$objeto->id]);
                 }
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_user"=>$objeto->id]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_user"=>$objeto->id]);
                 }
             }
         } catch(Exception $e) {
@@ -202,7 +202,7 @@ class UserDAO {
         return $objeto;
     }
 
-    public static function find_password($id, $midias = false, $sessions = false, $coments = false){
+    public static function find_password($id, $midias = false, $sessions = false, $comments = false){
         $objeto = Models::user();
         try {
             $PDO = connect_db::active();
@@ -225,8 +225,8 @@ class UserDAO {
                 if($sessions===true){
                     $objeto->sessions = SessionDAO::get((object)["id_user"=>$objeto->id]);
                 }
-                if($coments===true){
-                    $objeto->coments = ComentDAO::get((object)["id_user"=>$objeto->id]);
+                if($comments===true){
+                    $objeto->comments = CommentDAO::get((object)["id_user"=>$objeto->id]);
                 }
             }
         } catch(Exception $e) {

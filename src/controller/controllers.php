@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__."/../../src/controller/categorycontroller.php";
-require_once __DIR__."/../../src/controller/comentcontroller.php";
+require_once __DIR__."/../../src/controller/commentcontroller.php";
 require_once __DIR__."/../../src/controller/completioncontroller.php";
 require_once __DIR__."/../../src/controller/genrecontroller.php";
 require_once __DIR__."/../../src/controller/midiacontroller.php";
