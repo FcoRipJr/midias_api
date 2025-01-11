@@ -1,0 +1,3247 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Midia API",
+        "description": "API for managing midia, categories, genres, users, sessions, and comments.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/midia_api",
+            "description": "Main server"
+        }
+    ],
+    "paths": {
+        "/completions": {
+            "get": {
+                "tags": [
+                    "Completions"
+                ],
+                "summary": "List completions",
+                "description": "Returns a list of completions.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "order",
+                                "id",
+                                "description",
+                                "created",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(order if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of completions",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/completions/{id}": {
+            "get": {
+                "tags": [
+                    "Completions"
+                ],
+                "summary": "Get completion details",
+                "description": "Retrieve the details of a specific completion by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the completion."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Completion details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "order": {
+                                                    "type": "integer"
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "description": "Completed campaign mode",
+                                            "order": 2,
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "List categories",
+                "description": "Returns a list of categories.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "description",
+                                "id",
+                                "created",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(description if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    },
+                    {
+                        "name": "midias",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring midias from category"
+                    },
+                    {
+                        "name": "genres",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring genres from category"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of categories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/{id}": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get category details",
+                "description": "Retrieve the details of a specific category by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the category."
+                    },
+                    {
+                        "name": "midias",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include midia related to the category."
+                    },
+                    {
+                        "name": "genres",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include genres related to the category."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "midias": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "genres": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "description": "Movies",
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00",
+                                            "midias": [],
+                                            "genres": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/genres": {
+            "get": {
+                "tags": [
+                    "Genres"
+                ],
+                "summary": "List genres",
+                "description": "Returns a list of genres.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "description",
+                                "category",
+                                "id",
+                                "id_category",
+                                "created",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(description if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    },
+                    {
+                        "name": "midias",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring midias from genre"
+                    },
+                    {
+                        "name": "id_category",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "filter by id_category"
+                    },
+                    {
+                        "name": "id_midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "filter by id_midia"
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by description"
+                    },
+                    {
+                        "name": "description_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by description including value"
+                    },
+                    {
+                        "name": "category_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by category including value"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of genres",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/genres/{id}": {
+            "get": {
+                "tags": [
+                    "Genres"
+                ],
+                "summary": "Get genre details",
+                "description": "Retrieve the details of a specific genre by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the genre."
+                    },
+                    {
+                        "name": "midias",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include midia related to the genre."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Genre details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "id_category": {
+                                                    "type": "integer"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "category": {
+                                                    "type": "string"
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "midias": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "id_category": 1,
+                                            "description": "Action",
+                                            "category": "Movies",
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00",
+                                            "midias": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "List users",
+                "description": "Returns a list of users.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "name",
+                                "status",
+                                "id",
+                                "created",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(name if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    },
+                    {
+                        "name": "midias",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring midias from user"
+                    },
+                    {
+                        "name": "sessions",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring sessions from user"
+                    },
+                    {
+                        "name": "comments",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring comments from user"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by name"
+                    },
+                    {
+                        "name": "name_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by name including value"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by status"
+                    },
+                    {
+                        "name": "status_in",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by more than one status"
+                    },
+                    {
+                        "name": "status_notin",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by status different from value"
+                    },
+                    {
+                        "name": "id_not_in",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by id different from value"
+                    },
+                    {
+                        "name": "id_midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "filter by id_midia"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of users",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get user details",
+                "description": "Retrieve the details of a specific user by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the user."
+                    },
+                    {
+                        "name": "midias",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include midia related to the user."
+                    },
+                    {
+                        "name": "sessions",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include sessions related to the user."
+                    },
+                    {
+                        "name": "comments",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include comments made by the user."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "created",
+                                                        "active",
+                                                        "inactive",
+                                                        "suspended",
+                                                        "deleted"
+                                                    ]
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "midias": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "sessions": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "comments": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "name": "John Doe",
+                                            "status": "active",
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00",
+                                            "midias": [],
+                                            "sessions": [],
+                                            "comments": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete a user",
+                "description": "Deletes a specific user by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the user to be deleted."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "user deleted"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} is required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during deletion.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on delete"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/midias": {
+            "get": {
+                "tags": [
+                    "Midias"
+                ],
+                "summary": "List midias",
+                "description": "Returns a list of midias.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "title",
+                                "release",
+                                "category",
+                                "description",
+                                "id",
+                                "id_category",
+                                "created",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(title if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    },
+                    {
+                        "name": "genres",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring genres from midia"
+                    },
+                    {
+                        "name": "users",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring users from midia"
+                    },
+                    {
+                        "name": "comments",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring comments from midia"
+                    },
+                    {
+                        "name": "id_category",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_category"
+                    },
+                    {
+                        "name": "id_main_midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_main_midia"
+                    },
+                    {
+                        "name": "id_genre",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_genre"
+                    },
+                    {
+                        "name": "id_user",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_user"
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by title"
+                    },
+                    {
+                        "name": "title_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by title including value"
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by description"
+                    },
+                    {
+                        "name": "description_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by description including value"
+                    },
+                    {
+                        "name": "category_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by category including value"
+                    },
+                    {
+                        "name": "release_year",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by release_year"
+                    },
+                    {
+                        "name": "release_month",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by release_month"
+                    },
+                    {
+                        "name": "release_day",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by release_day"
+                    },
+                    {
+                        "name": "id_main_midia_null",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": null
+                        },
+                        "description": "filter by id_main_midia null"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of midias",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/midias/{id}": {
+            "get": {
+                "tags": [
+                    "Midias"
+                ],
+                "summary": "Get midia details",
+                "description": "Retrieve the details of a specific midia by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the midia."
+                    },
+                    {
+                        "name": "genres",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include genres related to the midia."
+                    },
+                    {
+                        "name": "users",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include users related to the midia."
+                    },
+                    {
+                        "name": "comments",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Include comments related to the midia."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Midia details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "id_category": {
+                                                    "type": "integer"
+                                                },
+                                                "id_main_midia": {
+                                                    "type": "integer"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "category": {
+                                                    "type": "string"
+                                                },
+                                                "main_midia": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "release_year": {
+                                                    "type": "string",
+                                                    "format": "yyyy"
+                                                },
+                                                "release_month": {
+                                                    "type": "string",
+                                                    "format": "mm"
+                                                },
+                                                "release_day": {
+                                                    "type": "string",
+                                                    "format": "dd"
+                                                },
+                                                "release": {
+                                                    "type": "string",
+                                                    "format": "yyyy | mm | dd | dd/mm/yyyy| mm/yyyy | dd/mm"
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "genres": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "users": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "comments": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "id_category": 1,
+                                            "id_main_midia": null,
+                                            "title": "The Matrix",
+                                            "category": "Movies",
+                                            "main_miida": null,
+                                            "description": "Enter thr matrix",
+                                            "release_year": "1999",
+                                            "release_month": "12",
+                                            "release_day": "31",
+                                            "release": "31/12/1999",
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00",
+                                            "genres": [],
+                                            "users": [],
+                                            "comments": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Midias"
+                ],
+                "summary": "Delete a midia",
+                "description": "Deletes a specific midia by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the midia to be deleted."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Midia deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "midia deleted"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} is required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during deletion.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on delete"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/midias/{id_midia}/genres/{id_genre}": {
+            "delete": {
+                "tags": [
+                    "Midias"
+                ],
+                "summary": "Removes genre from midia",
+                "description": "Removes a specific genre from midia by their IDs.",
+                "parameters": [
+                    {
+                        "name": "id_midia",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the midia to be deleted."
+                    },
+                    {
+                        "name": "id_genre",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the genre to be deleted."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Genre removed from Midia successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "midia_genre deleted"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} is required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during deletion.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on delete"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sessions": {
+            "get": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "List sessions",
+                "description": "Returns a list of sessions.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "start",
+                                "end",
+                                "user",
+                                "midia",
+                                "code",
+                                "id",
+                                "id_user",
+                                "id_midia",
+                                "created",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(start if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    },
+                    {
+                        "name": "id_user",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_user"
+                    },
+                    {
+                        "name": "id_midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_midia"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by code"
+                    },
+                    {
+                        "name": "code_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by code including value"
+                    },
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by user"
+                    },
+                    {
+                        "name": "user_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by user including value"
+                    },
+                    {
+                        "name": "midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by midia"
+                    },
+                    {
+                        "name": "midia_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by midia including value"
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "format": "yyyy-mm-dd"
+                        },
+                        "description": "filter by start or end iquals to value"
+                    },
+                    {
+                        "name": "range_start",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "format": "yyyy-mm-dd"
+                        },
+                        "description": "filter by start or end greater or iquals to value(requires range_end)"
+                    },
+                    {
+                        "name": "range_end",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "format": "yyyy-mm-dd"
+                        },
+                        "description": "filter by start or end lower or iquals to value(requires range_start)"
+                    },
+                    {
+                        "name": "comments",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring comments from session"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of sessions",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sessions/{id}": {
+            "get": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Get session details",
+                "description": "Retrieve the details of a specific session by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the session."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Session details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "id_user": {
+                                                    "type": "integer"
+                                                },
+                                                "id_midia": {
+                                                    "type": "integer"
+                                                },
+                                                "user": {
+                                                    "type": "string"
+                                                },
+                                                "midia": {
+                                                    "type": "string"
+                                                },
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "duration": {
+                                                    "type": "integer",
+                                                    "description": "Duration in minutes"
+                                                },
+                                                "start": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "end": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "start_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "end_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "comments": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "id_user": 2,
+                                            "id_midia": 3,
+                                            "code": "af85gh1e6th",
+                                            "user": "John Doe",
+                                            "midia": "The Matrix",
+                                            "duration": 120,
+                                            "start": "2024-12-31 12:00:00",
+                                            "end": "2024-12-31 14:30:00",
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "start_formated": "31/12/2024 12:00:00",
+                                            "end_formated": "31/12/2024 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00",
+                                            "comments": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Delete a session",
+                "description": "Deletes a specific session by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the session to be deleted."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Session deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "session deleted"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} is required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during deletion.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on delete"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user_midia": {
+            "get": {
+                "tags": [
+                    "User Midia"
+                ],
+                "summary": "List user midia relations",
+                "description": "Returns a list of user midia relations.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "midia",
+                                "user",
+                                "completion",
+                                "score",
+                                "id",
+                                "id_midia",
+                                "id_user",
+                                "id_completion",
+                                "created",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(midia if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    },
+                    {
+                        "name": "id_user",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_user"
+                    },
+                    {
+                        "name": "id_midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_midia"
+                    },
+                    {
+                        "name": "id_completion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_completion"
+                    },
+                    {
+                        "name": "id_category",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_category"
+                    },
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by user"
+                    },
+                    {
+                        "name": "user_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by user including value"
+                    },
+                    {
+                        "name": "midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by midia"
+                    },
+                    {
+                        "name": "midia_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by midia including value"
+                    },
+                    {
+                        "name": "score",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "filter by score"
+                    },
+                    {
+                        "name": "score_lower",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "filter by score lower than value"
+                    },
+                    {
+                        "name": "score_higher",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": null
+                        },
+                        "description": "filter by score higher than value"
+                    },
+                    {
+                        "name": "comments",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "Bring user comments from midia"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of user midia relations",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user_midia/{id}": {
+            "get": {
+                "tags": [
+                    "User Midia"
+                ],
+                "summary": "Get user midia details",
+                "description": "Retrieve the details of a specific user midia relationship by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the user midia."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User midia details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "id_user": {
+                                                    "type": "integer"
+                                                },
+                                                "id_midia": {
+                                                    "type": "integer"
+                                                },
+                                                "id_completion": {
+                                                    "type": "integer"
+                                                },
+                                                "user": {
+                                                    "type": "string"
+                                                },
+                                                "midia": {
+                                                    "type": "string"
+                                                },
+                                                "completion": {
+                                                    "type": "string"
+                                                },
+                                                "score": {
+                                                    "type": "integer",
+                                                    "minimum": 0,
+                                                    "maximum": 100
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "id_user": 2,
+                                            "id_midia": 3,
+                                            "id_completion": 3,
+                                            "user": "John Doe",
+                                            "midia": "The Matrix",
+                                            "completion": "watched",
+                                            "score": 98,
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User Midia"
+                ],
+                "summary": "Delete a user midia",
+                "description": "Deletes a specific user midia by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the user midia to be deleted."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Midia deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "user_midia deleted"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} is required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during deletion.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on delete"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "List comments",
+                "description": "Returns a list of comments.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "description": "Page number for pagination"
+                    },
+                    {
+                        "name": "page_limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "description": "Limit of itens on page"
+                    },
+                    {
+                        "name": "order_field",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "created",
+                                "user",
+                                "midia",
+                                "session",
+                                "text",
+                                "id",
+                                "id_user",
+                                "id_midia",
+                                "id_session",
+                                "updated"
+                            ]
+                        },
+                        "description": "Order field(created if null)"
+                    },
+                    {
+                        "name": "order_direction",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "enum": [
+                                null,
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "description": "Order direction(asc if null)"
+                    },
+                    {
+                        "name": "id_user",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_user"
+                    },
+                    {
+                        "name": "id_midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_midia"
+                    },
+                    {
+                        "name": "id_session",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": false
+                        },
+                        "description": "filter by id_session"
+                    },
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by text"
+                    },
+                    {
+                        "name": "text_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by text including value"
+                    },
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by user"
+                    },
+                    {
+                        "name": "user_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by user including value"
+                    },
+                    {
+                        "name": "midia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by midia"
+                    },
+                    {
+                        "name": "midia_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by midia including value"
+                    },
+                    {
+                        "name": "session",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by session"
+                    },
+                    {
+                        "name": "session_like",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null
+                        },
+                        "description": "filter by session including value"
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "format": "yyyy-mm-dd"
+                        },
+                        "description": "filter by created or updated iquals to value"
+                    },
+                    {
+                        "name": "range_start",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "format": "yyyy-mm-dd"
+                        },
+                        "description": "filter by created or updated greater or iquals to value(requires range_end)"
+                    },
+                    {
+                        "name": "range_end",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": null,
+                            "format": "yyyy-mm-dd"
+                        },
+                        "description": "filter by start or end lower or iquals to value(requires range_start)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of comments",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "rows": {
+                                            "type": "integer"
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "pages": {
+                                            "type": "integer"
+                                        },
+                                        "page_limit": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "example": {
+                                        "data": [],
+                                        "rows": 0,
+                                        "total": 0,
+                                        "page": 1,
+                                        "pages": 0,
+                                        "page_limit": 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/{id}": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Get comment details",
+                "description": "Retrieve the details of a specific comment by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the comment."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Comment details retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "id_user": {
+                                                    "type": "integer"
+                                                },
+                                                "id_midia": {
+                                                    "type": "integer"
+                                                },
+                                                "id_session": {
+                                                    "type": "integer"
+                                                },
+                                                "user": {
+                                                    "type": "string"
+                                                },
+                                                "midia": {
+                                                    "type": "string"
+                                                },
+                                                "session": {
+                                                    "type": "string"
+                                                },
+                                                "text": {
+                                                    "type": "string"
+                                                },
+                                                "created": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "updated": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss"
+                                                },
+                                                "created_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                },
+                                                "updated_formated": {
+                                                    "type": "string",
+                                                    "format": "dd/mm/yyyy hh:ii:ss"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": {
+                                        "data": {
+                                            "id": 1,
+                                            "id_user": 2,
+                                            "id_midia": 3,
+                                            "id_session": 3,
+                                            "user": "John Doe",
+                                            "midia": "The Matrix",
+                                            "session": "ge8g4ew9r",
+                                            "text": "Great movie!",
+                                            "created": "2024-12-31 12:00:00",
+                                            "updated": "2024-12-31 14:30:00",
+                                            "created_formated": "31/12/2024 12:00:00",
+                                            "updated_formated": "31/12/2024 14:30:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Delete a comment",
+                "description": "Deletes a specific comment by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the comment to be deleted."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Comment deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "comment deleted"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} is required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during deletion.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on delete"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
