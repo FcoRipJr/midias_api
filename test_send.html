@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SwaggerUI" />
+  <title>API TEST</title>
+  <link rel="icon" href="./public/icons/icon.png">
+  <link rel="stylesheet" href="./vendors/swagger/css/swagger-ui.css" />
+</head>
 <style>
     input, select{
         width:80%;
@@ -14,7 +24,7 @@
 <input type="text"id="url">
 
 <br>
-<label>Metodo</label>
+<label>Method</label>
 <select id="method">
     <option value="GET">GET</option>
     <option value="POST">POST</option>
@@ -25,7 +35,7 @@
 <br>
 <div style="display:flex;">
     <div style="width:50%;">
-        <label>content <button onclick="send()">enviar</button></label> 
+        <label>content <button onclick="send()">send</button></label> 
         <br>
         <textarea id="content"></textarea>
 
