@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Midia API",
-        "description": "API for managing midia, categories, genres, users, sessions, and comments. POST and PUT paths comming soon...",
+        "description": "API for managing midia, categories, genres, users, sessions, and comments. POST and PUT paths coming soon...",
         "version": "1.0.0"
     },
     "servers": [
@@ -1230,7 +1230,7 @@
                     }
                 }
             },
-            "put": {"tags":["Comming Soon"]},
+            "put": {"tags":["Coming Soon"]},
             "delete": {
                 "tags": [
                     "Users"
@@ -2046,7 +2046,7 @@
                     }
                 }
             },
-            "put": {"tags":["Comming Soon"]},
+            "put": {"tags":["Coming Soon"]},
             "delete": {
                 "tags": [
                     "Midias"
@@ -2172,10 +2172,10 @@
             }
         },
         "/midias/{id_midia}/genres": {
-            "post":{"tags":["Comming Soon"]}
+            "post":{"tags":["Coming Soon"]}
         },
         "/midias/{id_midia}/genres/{id_genre}": {
-            "put": {"tags":["Comming Soon"]},
+            "put": {"tags":["Coming Soon"]},
             "delete": {
                 "tags": [
                     "Midias"
@@ -2888,7 +2888,7 @@
                     }
                 }
             },
-            "put": {"tags":["Comming Soon"]},
+            "put": {"tags":["Coming Soon"]},
             "delete": {
                 "tags": [
                     "Sessions"
@@ -3555,7 +3555,7 @@
                     }
                 }
             },
-            "put": {"tags":["Comming Soon"]},
+            "put": {"tags":["Coming Soon"]},
             "delete": {
                 "tags": [
                     "User Midia"
@@ -4235,7 +4235,7 @@
                     }
                 }
             },
-            "put": {"tags":["Comming Soon"]},
+            "put": {"tags":["Coming Soon"]},
             "delete": {
                 "tags": [
                     "Comments"
@@ -4361,10 +4361,10 @@
             }
         },
         "/login": {
-            "post": {"tags":["Comming Soon"]}
+            "post": {"tags":["Coming Soon"]}
         },
         "/change_password": {
-            "put": {"tags":["Comming Soon"]}
+            "put": {"tags":["Coming Soon"]}
         }
 
     }
