@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Midia API",
-        "description": "API for managing midia, categories, genres, users, sessions, and comments.",
+        "description": "API for managing midia, categories, genres, users, sessions, and comments. POST and PUT paths comming soon...",
         "version": "1.0.0"
     },
     "servers": [
