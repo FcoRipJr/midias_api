@@ -41,6 +41,7 @@ class SessionController {
             $id = SessionDAO::insert($session);
             if($id){
                 $validation->code = $response->response_code;
+                $validation->msg = "session inserted";
                 $validation->id = $id;
                 $validation->session = SessionDAO::find($id);
                 $response->response_data = $validation;

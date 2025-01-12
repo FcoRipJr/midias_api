@@ -43,6 +43,7 @@ class UserController {
             $id = UserDAO::insert($user);
             if($id){
                 $validation->code = $response->response_code;
+                $validation->msg = "user inserted";
                 $validation->id = $id;
                 $validation->user = UserDAO::find($id);
                 $response->response_data = $validation;

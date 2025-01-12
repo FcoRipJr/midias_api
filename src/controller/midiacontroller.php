@@ -48,6 +48,7 @@ class MidiaController {
             $id = MidiaDAO::insert($midia);
             if($id){
                 $validation->code = $response->response_code;
+                $validation->msg = "midia inserted";
                 $validation->id = $id;
                 $validation->midia = MidiaDAO::find($id);
                 $response->response_data = $validation;
@@ -201,6 +202,7 @@ class MidiaController {
             $updated_rows = MidiaDAO::insert_genre($id_midia,$id_genre,$main);
             if($updated_rows){
                 $validation->code = $response->response_code;
+                $validation->msg = "midia_genre inserted";
                 $validation->id_midia = $id_midia;
                 $validation->id_genre = $id_genre;
                 $validation->main = $main;

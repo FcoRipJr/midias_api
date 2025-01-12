@@ -39,6 +39,7 @@ class CommentController {
             $id = CommentDAO::insert($comment);
             if($id){
                 $validation->code = $response->response_code;
+                $validation->msg = "comment inserted";
                 $validation->id = $id;
                 $validation->comment = CommentDAO::find($id);
                 $response->response_data = $validation;

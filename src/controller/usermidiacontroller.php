@@ -41,6 +41,7 @@ class UserMidiaController {
             $id = UserMidiaDAO::insert($user_midia);
             if($id){
                 $validation->code = $response->response_code;
+                $validation->msg = "user_midia inserted";
                 $validation->id = $id;
                 $validation->user_midia = UserMidiaDAO::find($id);
                 $response->response_data = $validation;
