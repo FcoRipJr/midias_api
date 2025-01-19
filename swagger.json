@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Midia API",
-        "description": "API for managing midia, categories, genres, users, sessions, and comments. POST and PUT paths coming soon...",
+        "description": "API for managing midia, categories, genres, users, sessions, and comments.",
         "version": "1.0.0"
     },
     "servers": [
@@ -17,8 +17,8 @@
                 "tags": [
                     "Completions"
                 ],
-                "summary": "List completions",
-                "description": "Returns a list of completions.",
+                "summary": "List Completions",
+                "description": "Returns a list of Completions.",
                 "parameters": [
                     {
                         "name": "page",
@@ -76,7 +76,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of completions",
+                        "description": "List of Completions",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -124,8 +124,8 @@
                 "tags": [
                     "Completions"
                 ],
-                "summary": "Get completion details",
-                "description": "Retrieve the details of a specific completion by its ID.",
+                "summary": "Get Completion details",
+                "description": "Retrieve the details of a specific Completion by its ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -134,7 +134,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the completion."
+                        "description": "Unique identifier of the Completion."
                     }
                 ],
                 "responses": {
@@ -199,8 +199,8 @@
                 "tags": [
                     "Categories"
                 ],
-                "summary": "List categories",
-                "description": "Returns a list of categories.",
+                "summary": "List Categories",
+                "description": "Returns a list of Categories.",
                 "parameters": [
                     {
                         "name": "page",
@@ -262,7 +262,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring midias from category"
+                        "description": "Bring Midias from Category"
                     },
                     {
                         "name": "genres",
@@ -272,12 +272,12 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring genres from category"
+                        "description": "Bring Genres from Category"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of categories",
+                        "description": "List of Categories",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -325,8 +325,8 @@
                 "tags": [
                     "Categories"
                 ],
-                "summary": "Get category details",
-                "description": "Retrieve the details of a specific category by its ID.",
+                "summary": "Get Category details",
+                "description": "Retrieve the details of a specific Category by its ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -335,7 +335,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the category."
+                        "description": "Unique identifier of the Category."
                     },
                     {
                         "name": "midias",
@@ -345,7 +345,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include midia related to the category."
+                        "description": "Include Midia related to the Category."
                     },
                     {
                         "name": "genres",
@@ -355,7 +355,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include genres related to the category."
+                        "description": "Include Genres related to the Category."
                     }
                 ],
                 "responses": {
@@ -430,8 +430,8 @@
                 "tags": [
                     "Genres"
                 ],
-                "summary": "List genres",
-                "description": "Returns a list of genres.",
+                "summary": "List Genres",
+                "description": "Returns a list of Genres.",
                 "parameters": [
                     {
                         "name": "page",
@@ -495,7 +495,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring midias from genre"
+                        "description": "Bring Midias from Genre"
                     },
                     {
                         "name": "id_category",
@@ -545,12 +545,12 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by category including value"
+                        "description": "filter by Category including value"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of genres",
+                        "description": "List of Genres",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -598,8 +598,8 @@
                 "tags": [
                     "Genres"
                 ],
-                "summary": "Get genre details",
-                "description": "Retrieve the details of a specific genre by its ID.",
+                "summary": "Get Genre details",
+                "description": "Retrieve the details of a specific Genre by its ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -608,7 +608,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the genre."
+                        "description": "Unique identifier of the Genre."
                     },
                     {
                         "name": "midias",
@@ -618,7 +618,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include midia related to the genre."
+                        "description": "Include Midia related to the Genre."
                     }
                 ],
                 "responses": {
@@ -694,8 +694,8 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "List users",
-                "description": "Returns a list of users.",
+                "summary": "List Users",
+                "description": "Returns a list of Users.",
                 "parameters": [
                     {
                         "name": "page",
@@ -758,7 +758,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring midias from user"
+                        "description": "Bring Midias from User"
                     },
                     {
                         "name": "sessions",
@@ -768,7 +768,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring sessions from user"
+                        "description": "Bring Sessions from User"
                     },
                     {
                         "name": "comments",
@@ -778,7 +778,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring comments from user"
+                        "description": "Bring Comments from User"
                     },
                     {
                         "name": "name",
@@ -853,7 +853,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of users",
+                        "description": "List of Users",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -899,8 +899,8 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Create a new user",
-                "description": "Creates a new user with the provided details.",
+                "summary": "Create a new User",
+                "description": "Creates a new User with the provided details.",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -911,12 +911,12 @@
                                     "name": {
                                         "type": "string",
                                         "example": "John Doe",
-                                        "description": "Name of the user."
+                                        "description": "Name of the User."
                                     },
                                     "password": {
                                         "type": "string",
                                         "example": "abc123",
-                                        "description": "Password for the user."
+                                        "description": "Password for the User."
                                     }
                                 },
                                 "required": [
@@ -1063,7 +1063,7 @@
                         }
                     },
                     "417": {
-                        "description": "Error occurred during user creation.",
+                        "description": "Error occurred during User creation.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1103,8 +1103,8 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Get user details",
-                "description": "Retrieve the details of a specific user by their ID.",
+                "summary": "Get User details",
+                "description": "Retrieve the details of a specific User by their ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -1113,7 +1113,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the user."
+                        "description": "Unique identifier of the User."
                     },
                     {
                         "name": "midias",
@@ -1123,7 +1123,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include midia related to the user."
+                        "description": "Include Midia related to the User."
                     },
                     {
                         "name": "sessions",
@@ -1133,7 +1133,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include sessions related to the user."
+                        "description": "Include Sessions related to the User."
                     },
                     {
                         "name": "comments",
@@ -1143,7 +1143,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include comments made by the user."
+                        "description": "Include Comments made by the User."
                     }
                 ],
                 "responses": {
@@ -1230,13 +1230,12 @@
                     }
                 }
             },
-            "put": {"tags":["Coming Soon"]},
-            "delete": {
+            "put": {
                 "tags": [
                     "Users"
                 ],
-                "summary": "Delete a user",
-                "description": "Deletes a specific user by their ID.",
+                "summary": "Update User",
+                "description": "Update User by their ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -1245,7 +1244,227 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the user to be deleted."
+                        "description": "Unique identifier of the User."
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe",
+                                        "description": "Name of the User."
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "example": "created",
+                                        "enum": [
+                                            "created",
+                                            "active",
+                                            "inactive",
+                                            "suspended",
+                                            "deleted"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "status"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "user updated"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "user": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "status": {
+                                                            "type": "string",
+                                                            "example": "created",
+                                                            "enum": [
+                                                                "created",
+                                                                "active",
+                                                                "inactive",
+                                                                "suspended",
+                                                                "deleted"
+                                                            ]
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "midias": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "sessions": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid | name already registered"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during User update.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on update"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete a User",
+                "description": "Deletes a specific User by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the User to be deleted."
                     }
                 ],
                 "responses": {
@@ -1360,8 +1579,8 @@
                 "tags": [
                     "Midias"
                 ],
-                "summary": "List midias",
-                "description": "Returns a list of midias.",
+                "summary": "List Midias",
+                "description": "Returns a list of Midias.",
                 "parameters": [
                     {
                         "name": "page",
@@ -1427,7 +1646,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring genres from midia"
+                        "description": "Bring Genres from Midia"
                     },
                     {
                         "name": "users",
@@ -1437,7 +1656,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring users from midia"
+                        "description": "Bring Users from Midia"
                     },
                     {
                         "name": "comments",
@@ -1447,7 +1666,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring comments from midia"
+                        "description": "Bring Comments from Midia"
                     },
                     {
                         "name": "id_category",
@@ -1537,7 +1756,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by category including value"
+                        "description": "filter by Category including value"
                     },
                     {
                         "name": "release_year",
@@ -1582,7 +1801,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of midias",
+                        "description": "List of Midias",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1628,8 +1847,8 @@
                 "tags": [
                     "Midias"
                 ],
-                "summary": "Create a new midia",
-                "description": "Creates a new midia with the provided details.",
+                "summary": "Create a new Midia",
+                "description": "Creates a new Midia with the provided details.",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1640,12 +1859,12 @@
                                     "title": {
                                         "type": "string",
                                         "example": "The Matrix",
-                                        "description": "Title of the midia."
+                                        "description": "Title of the Midia."
                                     },
                                     "id_category": {
                                         "type": "integer",
                                         "example": 1,
-                                        "description": "Id from Category of the midia."
+                                        "description": "Id from Category of the Midia."
                                     },
                                     "id_main_midia": {
                                         "type": "integer",
@@ -1655,25 +1874,25 @@
                                     "description": {
                                         "type": "string",
                                         "example": "Enter The Matrix",
-                                        "description": "Description of the midia."
+                                        "description": "Description of the Midia."
                                     },
                                     "release_year": {
                                         "type": "string",
                                         "example": "1999",
                                         "format": "yyyy",
-                                        "description": "Release Year of the midia."
+                                        "description": "Release Year of the Midia."
                                     },
                                     "release_month": {
                                         "type": "string",
                                         "example": "1999",
                                         "format": "mm",
-                                        "description": "Release Month of the midia."
+                                        "description": "Release Month of the Midia."
                                     },
                                     "release_day": {
                                         "type": "string",
                                         "example": "1999",
                                         "format": "mm",
-                                        "description": "Release Day of the midia."
+                                        "description": "Release Day of the Midia."
                                     }
                                 },
                                 "required": [
@@ -1686,7 +1905,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "midia created successfully.",
+                        "description": "Midia created successfully.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1850,7 +2069,7 @@
                         }
                     },
                     "417": {
-                        "description": "Error occurred during midia creation.",
+                        "description": "Error occurred during Midia creation.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1890,8 +2109,8 @@
                 "tags": [
                     "Midias"
                 ],
-                "summary": "Get midia details",
-                "description": "Retrieve the details of a specific midia by its ID.",
+                "summary": "Get Midia details",
+                "description": "Retrieve the details of a specific Midia by its ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -1900,7 +2119,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the midia."
+                        "description": "Unique identifier of the Midia."
                     },
                     {
                         "name": "genres",
@@ -1910,7 +2129,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include genres related to the midia."
+                        "description": "Include Genres related to the Midia."
                     },
                     {
                         "name": "users",
@@ -1920,7 +2139,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include users related to the midia."
+                        "description": "Include Users related to the Midia."
                     },
                     {
                         "name": "comments",
@@ -1930,7 +2149,7 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Include comments related to the midia."
+                        "description": "Include Comments related to the Midia."
                     }
                 ],
                 "responses": {
@@ -2046,13 +2265,12 @@
                     }
                 }
             },
-            "put": {"tags":["Coming Soon"]},
-            "delete": {
+            "put": {
                 "tags": [
                     "Midias"
                 ],
-                "summary": "Delete a midia",
-                "description": "Deletes a specific midia by their ID.",
+                "summary": "Update Midia",
+                "description": "Update Midia by their ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -2061,7 +2279,267 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the midia to be deleted."
+                        "description": "Unique identifier of the Midia."
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "The Matrix",
+                                        "description": "Title of the Midia."
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Enter The Matrix",
+                                        "description": "Description of the Midia."
+                                    },
+                                    "release_year": {
+                                        "type": "string",
+                                        "example": "1999",
+                                        "format": "yyyy",
+                                        "description": "Release Year of the Midia."
+                                    },
+                                    "release_month": {
+                                        "type": "string",
+                                        "example": "1999",
+                                        "format": "mm",
+                                        "description": "Release Month of the Midia."
+                                    },
+                                    "release_day": {
+                                        "type": "string",
+                                        "example": "1999",
+                                        "format": "mm",
+                                        "description": "Release Day of the Midia."
+                                    }
+                                },
+                                "required": [
+                                    "title"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Midia updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "midia updated"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "midia": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_category": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_main_midia": {
+                                                            "type": "integer",
+                                                            "example": null
+                                                        },
+                                                        "title": {
+                                                            "type": "string",
+                                                            "example": "The Matrix"
+                                                        },
+                                                        "category": {
+                                                            "type": "string",
+                                                            "example": "Movies"
+                                                        },
+                                                        "main_midia": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "example": "Enter The Matrix"
+                                                        },
+                                                        "release_year": {
+                                                            "type": "string",
+                                                            "format": "yyyy",
+                                                            "example": "1999"
+                                                        },
+                                                        "release_month": {
+                                                            "type": "string",
+                                                            "format": "mm",
+                                                            "example": "12"
+                                                        },
+                                                        "release_day": {
+                                                            "type": "string",
+                                                            "format": "dd",
+                                                            "example": "31"
+                                                        },
+                                                        "release": {
+                                                            "type": "string",
+                                                            "format": "yyyy | mm | dd | dd/mm/yyyy| mm/yyyy | dd/mm",
+                                                            "example": "31/12/1999"
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "genres": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "users": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during Midia update.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on update"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Midias"
+                ],
+                "summary": "Delete a Midia",
+                "description": "Deletes a specific Midia by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the Midia to be deleted."
                     }
                 ],
                 "responses": {
@@ -2172,16 +2650,266 @@
             }
         },
         "/midias/{id_midia}/genres": {
-            "post":{"tags":["Coming Soon"]}
-        },
-        "/midias/{id_midia}/genres/{id_genre}": {
-            "put": {"tags":["Coming Soon"]},
-            "delete": {
+            "post": {
                 "tags": [
                     "Midias"
                 ],
-                "summary": "Removes genre from midia",
-                "description": "Removes a specific genre from midia by their IDs.",
+                "summary": "Add a new Genre to a Midia",
+                "description": "Adds a new Genre to a Midia by their IDs with the provided details.",
+                "parameters": [
+                    {
+                        "name": "id_midia",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        },
+                        "description": "Unique identifier of the Midia to be deleted."
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id_genre": {
+                                        "type": "integer",
+                                        "example": 2,
+                                        "description": "Id from Genre."
+                                    },
+                                    "main": {
+                                        "type": "string",
+                                        "example": "true",
+                                        "enum": [
+                                            null,
+                                            "true",
+                                            "false"
+                                        ],
+                                        "description": "Indicates if is the main Genre of the Midia."
+                                    }
+                                },
+                                "required": [
+                                    "id_genre"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Genre added to Midia successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "midia_genre inserted"
+                                                },
+                                                "id_midia": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "id_genre": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "midia": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_category": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_main_midia": {
+                                                            "type": "integer",
+                                                            "example": null
+                                                        },
+                                                        "title": {
+                                                            "type": "string",
+                                                            "example": "The Matrix"
+                                                        },
+                                                        "category": {
+                                                            "type": "string",
+                                                            "example": "Movies"
+                                                        },
+                                                        "main_midia": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "example": "Enter The Matrix"
+                                                        },
+                                                        "release_year": {
+                                                            "type": "string",
+                                                            "format": "yyyy",
+                                                            "example": "1999"
+                                                        },
+                                                        "release_month": {
+                                                            "type": "string",
+                                                            "format": "mm",
+                                                            "example": "12"
+                                                        },
+                                                        "release_day": {
+                                                            "type": "string",
+                                                            "format": "dd",
+                                                            "example": "31"
+                                                        },
+                                                        "release": {
+                                                            "type": "string",
+                                                            "format": "yyyy | mm | dd | dd/mm/yyyy| mm/yyyy | dd/mm",
+                                                            "example": "31/12/1999"
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "genres": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "users": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during Midia creation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on insert"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/midias/{id_midia}/genres/{id_genre}": {
+            "put": {
+                "tags": [
+                    "Midias"
+                ],
+                "summary": "Update Genre from Midia",
+                "description": "Update Genre from Midia by their IDs.",
                 "parameters": [
                     {
                         "name": "id_midia",
@@ -2190,7 +2918,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the midia to be deleted."
+                        "description": "Unique identifier of the Midia to be updated."
                     },
                     {
                         "name": "id_genre",
@@ -2199,7 +2927,260 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the genre to be deleted."
+                        "description": "Unique identifier of the Genre to be updated."
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "main": {
+                                        "type": "string",
+                                        "example": "true",
+                                        "enum": [
+                                            null,
+                                            "true",
+                                            "false"
+                                        ],
+                                        "description": "Indicates if is the main Genre of the Midia."
+                                    }
+                                },
+                                "required": []
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Genre from Midia updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "midia_genre updated"
+                                                },
+                                                "id_midia": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "id_genre": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "midia": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_category": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_main_midia": {
+                                                            "type": "integer",
+                                                            "example": null
+                                                        },
+                                                        "title": {
+                                                            "type": "string",
+                                                            "example": "The Matrix"
+                                                        },
+                                                        "category": {
+                                                            "type": "string",
+                                                            "example": "Movies"
+                                                        },
+                                                        "main_midia": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "example": "Enter The Matrix"
+                                                        },
+                                                        "release_year": {
+                                                            "type": "string",
+                                                            "format": "yyyy",
+                                                            "example": "1999"
+                                                        },
+                                                        "release_month": {
+                                                            "type": "string",
+                                                            "format": "mm",
+                                                            "example": "12"
+                                                        },
+                                                        "release_day": {
+                                                            "type": "string",
+                                                            "format": "dd",
+                                                            "example": "31"
+                                                        },
+                                                        "release": {
+                                                            "type": "string",
+                                                            "format": "yyyy | mm | dd | dd/mm/yyyy| mm/yyyy | dd/mm",
+                                                            "example": "31/12/1999"
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "genres": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "users": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during Genre from Midia update.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on update"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Midias"
+                ],
+                "summary": "Removes Genre from Midia",
+                "description": "Removes a specific Genre from Midia by their IDs.",
+                "parameters": [
+                    {
+                        "name": "id_midia",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the Midia to be deleted."
+                    },
+                    {
+                        "name": "id_genre",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the Genre to be deleted."
                     }
                 ],
                 "responses": {
@@ -2314,8 +3295,8 @@
                 "tags": [
                     "Sessions"
                 ],
-                "summary": "List sessions",
-                "description": "Returns a list of sessions.",
+                "summary": "List Sessions",
+                "description": "Returns a list of Sessions.",
                 "parameters": [
                     {
                         "name": "page",
@@ -2423,7 +3404,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by user"
+                        "description": "filter by User"
                     },
                     {
                         "name": "user_like",
@@ -2433,7 +3414,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by user including value"
+                        "description": "filter by User including value"
                     },
                     {
                         "name": "midia",
@@ -2443,7 +3424,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by midia"
+                        "description": "filter by Midia"
                     },
                     {
                         "name": "midia_like",
@@ -2453,7 +3434,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by midia including value"
+                        "description": "filter by Midia including value"
                     },
                     {
                         "name": "date",
@@ -2496,12 +3477,12 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring comments from session"
+                        "description": "Bring Comments from Session"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of sessions",
+                        "description": "List of Sessions",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2547,8 +3528,8 @@
                 "tags": [
                     "Sessions"
                 ],
-                "summary": "Create a new session",
-                "description": "Creates a new session with the provided details.",
+                "summary": "Create a new Session",
+                "description": "Creates a new Session with the provided details.",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2559,24 +3540,24 @@
                                     "id_user": {
                                         "type": "integer",
                                         "example": 1,
-                                        "description": "Id from User of the session."
+                                        "description": "Id from User of the Session."
                                     },
                                     "id_midia": {
                                         "type": "integer",
                                         "example": 1,
-                                        "description": "Id from Midia of the session."
+                                        "description": "Id from Midia of the Session."
                                     },
                                     "start": {
                                         "type": "string",
                                         "example": "2024-12-31 20:40:00",
                                         "format": "yyyy-mm-dd hh:ii:ss",
-                                        "description": "Start timespamp of the session.(current timestamp when null)"
+                                        "description": "Start timespamp of the Session.(current timestamp when null)"
                                     },
                                     "end": {
                                         "type": "string",
                                         "example": "2024-12-31 20:55:00",
                                         "format": "yyyy-mm-dd hh:ii:ss",
-                                        "description": "End timespamp of the session."
+                                        "description": "End timespamp of the Session."
                                     }
                                 },
                                 "required": [
@@ -2589,7 +3570,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "session created successfully.",
+                        "description": "Session created successfully.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2735,7 +3716,7 @@
                         }
                     },
                     "417": {
-                        "description": "Error occurred during session creation.",
+                        "description": "Error occurred during Session creation.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2775,8 +3756,8 @@
                 "tags": [
                     "Sessions"
                 ],
-                "summary": "Get session details",
-                "description": "Retrieve the details of a specific session by its ID.",
+                "summary": "Get Session details",
+                "description": "Retrieve the details of a specific Session by its ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -2785,7 +3766,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the session."
+                        "description": "Unique identifier of the Session."
                     }
                 ],
                 "responses": {
@@ -2888,13 +3869,12 @@
                     }
                 }
             },
-            "put": {"tags":["Coming Soon"]},
-            "delete": {
+            "put": {
                 "tags": [
                     "Sessions"
                 ],
-                "summary": "Delete a session",
-                "description": "Deletes a specific session by their ID.",
+                "summary": "Update Session",
+                "description": "Update Session by their ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -2903,7 +3883,233 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the session to be deleted."
+                        "description": "Unique identifier of the Session."
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "start": {
+                                        "type": "string",
+                                        "example": "2024-12-31 20:40:00",
+                                        "format": "yyyy-mm-dd hh:ii:ss",
+                                        "description": "Start timespamp of the Session."
+                                    },
+                                    "end": {
+                                        "type": "string",
+                                        "example": "2024-12-31 20:55:00",
+                                        "format": "yyyy-mm-dd hh:ii:ss",
+                                        "description": "End timespamp of the Session."
+                                    }
+                                },
+                                "required": [
+                                    "start"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Session updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "session updated"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "session": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_user": {
+                                                            "type": "integer",
+                                                            "example": 2
+                                                        },
+                                                        "id_midia": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "code": {
+                                                            "type": "string",
+                                                            "example": "f1yiyswe8"
+                                                        },
+                                                        "user": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "midia": {
+                                                            "type": "string",
+                                                            "example": "The Matrix"
+                                                        },
+                                                        "start": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 20:40:00"
+                                                        },
+                                                        "end": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 20:55:00"
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "start_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 20:40:00"
+                                                        },
+                                                        "end_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 20:55:00"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid | start greater than end"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during Session update.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on update"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Delete a Session",
+                "description": "Deletes a specific Session by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the Session to be deleted."
                     }
                 ],
                 "responses": {
@@ -3018,8 +4224,8 @@
                 "tags": [
                     "User Midia"
                 ],
-                "summary": "List user midia relations",
-                "description": "Returns a list of user midia relations.",
+                "summary": "List User Midia relations",
+                "description": "Returns a list of User Midia relations.",
                 "parameters": [
                     {
                         "name": "page",
@@ -3127,7 +4333,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by user"
+                        "description": "filter by User"
                     },
                     {
                         "name": "user_like",
@@ -3137,7 +4343,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by user including value"
+                        "description": "filter by User including value"
                     },
                     {
                         "name": "midia",
@@ -3147,7 +4353,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by midia"
+                        "description": "filter by Midia"
                     },
                     {
                         "name": "midia_like",
@@ -3157,7 +4363,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by midia including value"
+                        "description": "filter by Midia including value"
                     },
                     {
                         "name": "score",
@@ -3197,12 +4403,12 @@
                             "type": "boolean",
                             "default": false
                         },
-                        "description": "Bring user comments from midia"
+                        "description": "Bring User Comments from Midia"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of user midia relations",
+                        "description": "List of User Midia relations",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -3249,7 +4455,7 @@
                     "User Midia"
                 ],
                 "summary": "Add Midia to User",
-                "description": "Add a new Midia to User session with the provided details.",
+                "description": "Add a new Midia to User Session with the provided details.",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -3424,7 +4630,7 @@
                         }
                     },
                     "417": {
-                        "description": "Error occurred during session creation.",
+                        "description": "Error occurred during Session creation.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -3464,8 +4670,8 @@
                 "tags": [
                     "User Midia"
                 ],
-                "summary": "Get user midia details",
-                "description": "Retrieve the details of a specific user midia relationship by its ID.",
+                "summary": "Get User Midia details",
+                "description": "Retrieve the details of a specific User Midia relationship by its ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -3474,12 +4680,12 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the user midia."
+                        "description": "Unique identifier of the User Midia."
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "User midia details retrieved successfully.",
+                        "description": "User Midia details retrieved successfully.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -3555,13 +4761,12 @@
                     }
                 }
             },
-            "put": {"tags":["Coming Soon"]},
-            "delete": {
+            "put": {
                 "tags": [
                     "User Midia"
                 ],
-                "summary": "Delete a user midia",
-                "description": "Deletes a specific user midia by their ID.",
+                "summary": "Update User Midia",
+                "description": "Update User Midia by their ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -3570,7 +4775,219 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the user midia to be deleted."
+                        "description": "Unique identifier of the User Midia."
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id_completion": {
+                                        "type": "integer",
+                                        "example": 1,
+                                        "description": "Id from Completion of the Midia from User."
+                                    },
+                                    "score": {
+                                        "type": "integer",
+                                        "example": 85,
+                                        "minimum": 0,
+                                        "maximum": 100,
+                                        "description": "Score of the Midia from User."
+                                    }
+                                },
+                                "required": []
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User Midia updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "user_midia updated"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "user_midia": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_user": {
+                                                            "type": "integer",
+                                                            "example": 2
+                                                        },
+                                                        "id_midia": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "id_completion": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "user": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "midia": {
+                                                            "type": "string",
+                                                            "example": "The Matrix"
+                                                        },
+                                                        "completion": {
+                                                            "type": "string",
+                                                            "example": "watched"
+                                                        },
+                                                        "score": {
+                                                            "type": "integer",
+                                                            "example": 85
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during User Midia update.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on update"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User Midia"
+                ],
+                "summary": "Delete a User Midia",
+                "description": "Deletes a specific User Midia by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the User Midia to be deleted."
                     }
                 ],
                 "responses": {
@@ -3685,8 +5102,8 @@
                 "tags": [
                     "Comments"
                 ],
-                "summary": "List comments",
-                "description": "Returns a list of comments.",
+                "summary": "List Comments",
+                "description": "Returns a list of Comments.",
                 "parameters": [
                     {
                         "name": "page",
@@ -3804,7 +5221,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by user"
+                        "description": "filter by User"
                     },
                     {
                         "name": "user_like",
@@ -3814,7 +5231,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by user including value"
+                        "description": "filter by User including value"
                     },
                     {
                         "name": "midia",
@@ -3824,7 +5241,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by midia"
+                        "description": "filter by Midia"
                     },
                     {
                         "name": "midia_like",
@@ -3834,7 +5251,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by midia including value"
+                        "description": "filter by Midia including value"
                     },
                     {
                         "name": "session",
@@ -3844,7 +5261,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by session"
+                        "description": "filter by Session"
                     },
                     {
                         "name": "session_like",
@@ -3854,7 +5271,7 @@
                             "type": "string",
                             "default": null
                         },
-                        "description": "filter by session including value"
+                        "description": "filter by Session including value"
                     },
                     {
                         "name": "date",
@@ -3892,7 +5309,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of comments",
+                        "description": "List of Comments",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -3938,8 +5355,8 @@
                 "tags": [
                     "Comments"
                 ],
-                "summary": "Create a new comment",
-                "description": "Creates a new comment with the provided details.",
+                "summary": "Create a new Comment",
+                "description": "Creates a new Comment with the provided details.",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -3950,22 +5367,22 @@
                                     "id_user": {
                                         "type": "integer",
                                         "example": 1,
-                                        "description": "Id from User of the comment."
+                                        "description": "Id from User of the Comment."
                                     },
                                     "id_midia": {
                                         "type": "integer",
                                         "example": 1,
-                                        "description": "Id from Midia of the comment."
+                                        "description": "Id from Midia of the Comment."
                                     },
                                     "id_session": {
                                         "type": "integer",
                                         "example": 1,
-                                        "description": "Id from Session of the comment."
+                                        "description": "Id from Session of the Comment."
                                     },
                                     "text": {
                                         "type": "string",
                                         "example": "Great Movie!",
-                                        "description": "Text of the comment."
+                                        "description": "Text of the Comment."
                                     }
                                 },
                                 "required": [
@@ -3979,7 +5396,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "comment created successfully.",
+                        "description": "Comment created successfully.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -4106,7 +5523,7 @@
                         }
                     },
                     "417": {
-                        "description": "Error occurred during comment creation.",
+                        "description": "Error occurred during Comment creation.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -4146,8 +5563,8 @@
                 "tags": [
                     "Comments"
                 ],
-                "summary": "Get comment details",
-                "description": "Retrieve the details of a specific comment by its ID.",
+                "summary": "Get Comment details",
+                "description": "Retrieve the details of a specific Comment by its ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -4156,7 +5573,7 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the comment."
+                        "description": "Unique identifier of the Comment."
                     }
                 ],
                 "responses": {
@@ -4235,13 +5652,12 @@
                     }
                 }
             },
-            "put": {"tags":["Coming Soon"]},
-            "delete": {
+            "put": {
                 "tags": [
                     "Comments"
                 ],
-                "summary": "Delete a comment",
-                "description": "Deletes a specific comment by their ID.",
+                "summary": "Update Comment",
+                "description": "Update Comment by their ID.",
                 "parameters": [
                     {
                         "name": "id",
@@ -4250,7 +5666,207 @@
                         "schema": {
                             "type": "integer"
                         },
-                        "description": "Unique identifier of the comment to be deleted."
+                        "description": "Unique identifier of the Comment."
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "example": "Great Movie!",
+                                        "description": "Text of the Comment."
+                                    }
+                                },
+                                "required": [
+                                    "text"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Comment updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "comment updated"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "comment": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "id_user": {
+                                                            "type": "integer",
+                                                            "example": 2
+                                                        },
+                                                        "id_midia": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "id_session": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "text": {
+                                                            "type": "string",
+                                                            "example": "Great Movie!"
+                                                        },
+                                                        "user": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "midia": {
+                                                            "type": "string",
+                                                            "example": "The Matrix"
+                                                        },
+                                                        "session": {
+                                                            "type": "string",
+                                                            "example": "kt8e9rgw4"
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during Comment update.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on update"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Delete a Comment",
+                "description": "Deletes a specific Comment by their ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Unique identifier of the Comment to be deleted."
                     }
                 ],
                 "responses": {
@@ -4361,11 +5977,411 @@
             }
         },
         "/login": {
-            "post": {"tags":["Coming Soon"]}
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "User Login",
+                "description": "Login providing Users's name and password.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe",
+                                        "description": "Name from User."
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "abc123",
+                                        "description": "Password from User."
+                                    }
+                                },
+                                "required": [
+                                    "password",
+                                    "name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User logged in successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "user logged"
+                                                },
+                                                "user": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "status": {
+                                                            "type": "string",
+                                                            "example": "created",
+                                                            "enum": [
+                                                                "created",
+                                                                "active",
+                                                                "inactive",
+                                                                "suspended",
+                                                                "deleted"
+                                                            ]
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "midias": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "sessions": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 401
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 401
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "bad credentials"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         },
         "/change_password": {
-            "put": {"tags":["Coming Soon"]}
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Change Password",
+                "description": "Changes Users password providing old password.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id_user": {
+                                        "type": "integer",
+                                        "example": 2,
+                                        "description": "Id from User."
+                                    },
+                                    "old_password": {
+                                        "type": "string",
+                                        "example": "abc123",
+                                        "description": "Current Password from User.(not required when User has no Password)"
+                                    },
+                                    "new_password": {
+                                        "type": "string",
+                                        "example": "abc456",
+                                        "description": "New Password for the User."
+                                    }
+                                },
+                                "required": [
+                                    "id_user",
+                                    "new_password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User's password updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "password updated"
+                                                },
+                                                "user": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 3
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "status": {
+                                                            "type": "string",
+                                                            "example": "created",
+                                                            "enum": [
+                                                                "created",
+                                                                "active",
+                                                                "inactive",
+                                                                "suspended",
+                                                                "deleted"
+                                                            ]
+                                                        },
+                                                        "created": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "updated": {
+                                                            "type": "string",
+                                                            "format": "yyyy-mm-dd hh:ii:ss",
+                                                            "example": "2024-12-31 15:50:39"
+                                                        },
+                                                        "created_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "updated_formated": {
+                                                            "type": "string",
+                                                            "format": "dd/mm/yyyy hh:ii:ss",
+                                                            "example": "31/12/2024 15:50:39"
+                                                        },
+                                                        "midias": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "sessions": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        },
+                                                        "comments": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object"
+                                                            },
+                                                            "exemple": []
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid or missing fields.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 400
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} required|invalid"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during User's Password update.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on update"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-
     }
 }
