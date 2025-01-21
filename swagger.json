@@ -21,24 +21,13 @@
                 "description": "Returns a list of Completions.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": null
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": null
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -57,21 +46,6 @@
                             ]
                         },
                         "description": "Order field(order if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     }
                 ],
                 "responses": {
@@ -81,34 +55,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#components/schemas/completion"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/completion"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -162,24 +124,13 @@
                 "description": "Returns a list of Categories.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 10
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -197,21 +148,6 @@
                             ]
                         },
                         "description": "Order field(description if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     },
                     {
                         "name": "midias",
@@ -241,34 +177,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#components/schemas/category"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/category"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -342,24 +266,13 @@
                 "description": "Returns a list of Genres.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": null
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": null
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -379,21 +292,6 @@
                             ]
                         },
                         "description": "Order field(description if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     },
                     {
                         "name": "midias",
@@ -463,34 +361,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#components/schemas/genre"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/genre"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -554,24 +440,13 @@
                 "description": "Returns a list of Users.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": null
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": null
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -590,21 +465,6 @@
                             ]
                         },
                         "description": "Order field(name if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     },
                     {
                         "name": "midias",
@@ -714,34 +574,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/user"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -1108,24 +956,13 @@
                 "description": "Returns a list of Midias.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 10
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -1147,21 +984,6 @@
                             ]
                         },
                         "description": "Order field(title if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     },
                     {
                         "name": "genres",
@@ -1331,34 +1153,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#components/schemas/midia"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/midia"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -2086,24 +1896,13 @@
                 "description": "Returns a list of Sessions.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 10
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -2127,21 +1926,6 @@
                             ]
                         },
                         "description": "Order field(start if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     },
                     {
                         "name": "id_user",
@@ -2274,34 +2058,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#components/schemas/session"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/session"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -2641,24 +2413,13 @@
                 "description": "Returns a list of User Midia relations.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 10
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -2682,21 +2443,6 @@
                             ]
                         },
                         "description": "Order field(midia if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     },
                     {
                         "name": "id_user",
@@ -2826,34 +2572,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#components/schemas/user_midia"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/user_midia"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -3196,24 +2930,13 @@
                 "description": "Returns a list of Comments.",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        },
-                        "description": "Page number for pagination"
+                        "$ref": "#components/schemas/page"
                     },
                     {
-                        "name": "page_limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 10
-                        },
-                        "description": "Limit of itens on page"
+                        "$ref": "#components/schemas/page_limit"
+                    },
+                    {
+                        "$ref": "#components/schemas/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -3237,21 +2960,6 @@
                             ]
                         },
                         "description": "Order field(created if null)"
-                    },
-                    {
-                        "name": "order_direction",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": null,
-                            "enum": [
-                                null,
-                                "asc",
-                                "desc"
-                            ]
-                        },
-                        "description": "Order direction(asc if null)"
                     },
                     {
                         "name": "id_user",
@@ -3404,34 +3112,22 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#components/schemas/comment"
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#components/schemas/comment"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "rows": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "total": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "pages": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "page_limit": {
-                                            "type": "integer",
-                                            "example": 10
+                                        {
+                                            "$ref": "#/components/schemas/get_200_default"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
@@ -4448,6 +4144,31 @@
                     }
                 }
             },
+            "get_200_default": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "total": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "page": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "pages": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "page_limit": {
+                        "type": "integer",
+                        "example": 10
+                    }
+                }
+            },
             "400_default": {
                 "type": "object",
                 "properties": {
@@ -4603,6 +4324,41 @@
                         }
                     }
                 }
+            },
+            "page": {
+                "name": "page",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "default": null
+                },
+                "description": "Page number for pagination"
+            },
+            "page_limit": {
+                "name": "page_limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "default": null
+                },
+                "description": "Limit of itens on page"
+            },
+            "order_direction": {
+                "name": "order_direction",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "default": null,
+                    "enum": [
+                        null,
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "description": "Order direction(asc if null)"
             }
         }
     }
