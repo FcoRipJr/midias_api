@@ -248,4 +248,9 @@ class UserController {
         }
         return (object)["status"=>$validate,"msg"=>$msg]; 
     }
+
+    public static function check_token($token){
+        $user = UserDAO::find_token($token);
+        return !empty($user->id??null);
+    }
 }

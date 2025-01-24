@@ -7,8 +7,49 @@
     },
     "servers": [
         {
-            "url": "/midia_api",
+            "url": "/midias_api",
             "description": "Main server"
+        },
+        {
+            "url": "http://localhost/midias_api",
+            "description": "Localhost server"
+        }
+    ],
+    "security": [
+        {"ApiKeyAuth": []}
+    ],
+    "tags": [
+        {
+            "name": "Users",
+            "description": "Gathers endpoints to handle Users."
+        },
+        {
+            "name": "Midias",
+            "description": "Gathers endpoints to handle Midias."
+        },
+        {
+            "name": "Sessions",
+            "description": "Gathers endpoints to handle Sessions."
+        },
+        {
+            "name": "Comments",
+            "description": "Gathers endpoints to handle Comments."
+        },
+        {
+            "name": "User Midia",
+            "description": "Gathers endpoints to handle User Midia."
+        },
+        {
+            "name": "Genres",
+            "description": "Gathers endpoints to handle Genres."
+        },
+        {
+            "name": "Categories",
+            "description": "Gathers endpoints to handle Categories."
+        },
+        {
+            "name": "Completions",
+            "description": "Gathers endpoints to handle Completions."
         }
     ],
     "paths": {
@@ -21,13 +62,13 @@
                 "description": "Returns a list of Completions.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -68,7 +109,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -79,23 +120,23 @@
             }
         },
         "/completions/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the Completion."
+                }
+            ],
             "get": {
                 "tags": [
                     "Completions"
                 ],
                 "summary": "Get Completion details",
                 "description": "Retrieve the details of a specific Completion by its ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Completion."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Completion details retrieved successfully.",
@@ -124,13 +165,13 @@
                 "description": "Returns a list of Categories.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -190,7 +231,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -201,6 +242,17 @@
             }
         },
         "/categories/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the Category."
+                }
+            ],
             "get": {
                 "tags": [
                     "Categories"
@@ -208,15 +260,6 @@
                 "summary": "Get Category details",
                 "description": "Retrieve the details of a specific Category by its ID.",
                 "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Category."
-                    },
                     {
                         "name": "midias",
                         "in": "query",
@@ -266,13 +309,13 @@
                 "description": "Returns a list of Genres.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -374,7 +417,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -385,6 +428,17 @@
             }
         },
         "/genres/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the Genre."
+                }
+            ],
             "get": {
                 "tags": [
                     "Genres"
@@ -392,15 +446,6 @@
                 "summary": "Get Genre details",
                 "description": "Retrieve the details of a specific Genre by its ID.",
                 "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Genre."
-                    },
                     {
                         "name": "midias",
                         "in": "query",
@@ -440,13 +485,13 @@
                 "description": "Returns a list of Users.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -587,7 +632,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -673,7 +718,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_user"
+                                    "$ref": "#components/responses/400_user"
                                 }
                             }
                         }
@@ -683,7 +728,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_insert"
+                                    "$ref": "#components/responses/417_insert"
                                 }
                             }
                         }
@@ -692,6 +737,17 @@
             }
         },
         "/users/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the User."
+                }
+            ],
             "get": {
                 "tags": [
                     "Users"
@@ -699,15 +755,6 @@
                 "summary": "Get User details",
                 "description": "Retrieve the details of a specific User by their ID.",
                 "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the User."
-                    },
                     {
                         "name": "midias",
                         "in": "query",
@@ -763,17 +810,6 @@
                 ],
                 "summary": "Update User",
                 "description": "Update User by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the User."
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -852,7 +888,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_user"
+                                    "$ref": "#components/responses/400_user"
                                 }
                             }
                         }
@@ -862,7 +898,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_update"
+                                    "$ref": "#components/responses/417_update"
                                 }
                             }
                         }
@@ -875,17 +911,6 @@
                 ],
                 "summary": "Delete a User",
                 "description": "Deletes a specific User by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the User to be deleted."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "User deleted successfully.",
@@ -929,7 +954,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -939,7 +964,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_delete"
+                                    "$ref": "#components/responses/417_delete"
                                 }
                             }
                         }
@@ -956,13 +981,13 @@
                 "description": "Returns a list of Midias.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -1166,7 +1191,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -1281,7 +1306,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -1291,7 +1316,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_insert"
+                                    "$ref": "#components/responses/417_insert"
                                 }
                             }
                         }
@@ -1300,6 +1325,17 @@
             }
         },
         "/midias/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the Midia."
+                }
+            ],
             "get": {
                 "tags": [
                     "Midias"
@@ -1307,15 +1343,6 @@
                 "summary": "Get Midia details",
                 "description": "Retrieve the details of a specific Midia by its ID.",
                 "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Midia."
-                    },
                     {
                         "name": "genres",
                         "in": "query",
@@ -1371,17 +1398,6 @@
                 ],
                 "summary": "Update Midia",
                 "description": "Update Midia by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Midia."
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1471,7 +1487,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -1481,7 +1497,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_update"
+                                    "$ref": "#components/responses/417_update"
                                 }
                             }
                         }
@@ -1494,17 +1510,6 @@
                 ],
                 "summary": "Delete a Midia",
                 "description": "Deletes a specific Midia by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Midia to be deleted."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Midia deleted successfully.",
@@ -1548,7 +1553,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -1558,7 +1563,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_delete"
+                                    "$ref": "#components/responses/417_delete"
                                 }
                             }
                         }
@@ -1567,24 +1572,24 @@
             }
         },
         "/midias/{id_midia}/genres": {
+            "parameters": [
+                {
+                    "name": "id_midia",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "description": "Unique identifier of the Midia."
+                }
+            ],
             "post": {
                 "tags": [
                     "Midias"
                 ],
                 "summary": "Add a new Genre to a Midia",
                 "description": "Adds a new Genre to a Midia by their IDs with the provided details.",
-                "parameters": [
-                    {
-                        "name": "id_midia",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "example": 1
-                        },
-                        "description": "Unique identifier of the Midia to be deleted."
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1665,7 +1670,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -1675,7 +1680,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_insert"
+                                    "$ref": "#components/responses/417_insert"
                                 }
                             }
                         }
@@ -1684,32 +1689,33 @@
             }
         },
         "/midias/{id_midia}/genres/{id_genre}": {
+            "parameters": [
+                {
+                    "name": "id_midia",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "description": "Unique identifier of the Midia."
+                },
+                {
+                    "name": "id_genre",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the Genre."
+                }
+            ],
             "put": {
                 "tags": [
                     "Midias"
                 ],
                 "summary": "Update Genre from Midia",
                 "description": "Update Genre from Midia by their IDs.",
-                "parameters": [
-                    {
-                        "name": "id_midia",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Midia to be updated."
-                    },
-                    {
-                        "name": "id_genre",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Genre to be updated."
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1783,7 +1789,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -1793,7 +1799,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_update"
+                                    "$ref": "#components/responses/417_update"
                                 }
                             }
                         }
@@ -1806,26 +1812,6 @@
                 ],
                 "summary": "Removes Genre from Midia",
                 "description": "Removes a specific Genre from Midia by their IDs.",
-                "parameters": [
-                    {
-                        "name": "id_midia",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Midia to be deleted."
-                    },
-                    {
-                        "name": "id_genre",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Genre to be deleted."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Genre removed from Midia successfully.",
@@ -1869,7 +1855,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -1879,7 +1865,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_delete"
+                                    "$ref": "#components/responses/417_delete"
                                 }
                             }
                         }
@@ -1896,13 +1882,13 @@
                 "description": "Returns a list of Sessions.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -2071,7 +2057,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -2170,7 +2156,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_session"
+                                    "$ref": "#components/responses/400_session"
                                 }
                             }
                         }
@@ -2180,7 +2166,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_insert"
+                                    "$ref": "#components/responses/417_insert"
                                 }
                             }
                         }
@@ -2189,23 +2175,23 @@
             }
         },
         "/sessions/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the Session."
+                }
+            ],
             "get": {
                 "tags": [
                     "Sessions"
                 ],
                 "summary": "Get Session details",
                 "description": "Retrieve the details of a specific Session by its ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Session."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Session details retrieved successfully.",
@@ -2225,17 +2211,6 @@
                 ],
                 "summary": "Update Session",
                 "description": "Update Session by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Session."
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2309,7 +2284,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_session"
+                                    "$ref": "#components/responses/400_session"
                                 }
                             }
                         }
@@ -2319,7 +2294,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_update"
+                                    "$ref": "#components/responses/417_update"
                                 }
                             }
                         }
@@ -2332,17 +2307,6 @@
                 ],
                 "summary": "Delete a Session",
                 "description": "Deletes a specific Session by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Session to be deleted."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Session deleted successfully.",
@@ -2386,7 +2350,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -2396,7 +2360,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_delete"
+                                    "$ref": "#components/responses/417_delete"
                                 }
                             }
                         }
@@ -2413,13 +2377,13 @@
                 "description": "Returns a list of User Midia relations.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -2585,7 +2549,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -2628,6 +2592,12 @@
                                         "minimum": 0,
                                         "maximum": 100,
                                         "description": "Score of the Midia from User."
+                                    },
+                                    "completed": {
+                                        "type": "string",
+                                        "example": "2025-01-15",
+                                        "format": "yyyy-mm-dd",
+                                        "description": "Completed Date of the Midia from User."
                                     }
                                 },
                                 "required": [
@@ -2684,7 +2654,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -2694,7 +2664,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_insert"
+                                    "$ref": "#components/responses/417_insert"
                                 }
                             }
                         }
@@ -2703,23 +2673,23 @@
             }
         },
         "/user_midia/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the User Midia."
+                }
+            ],
             "get": {
                 "tags": [
                     "User Midia"
                 ],
                 "summary": "Get User Midia details",
                 "description": "Retrieve the details of a specific User Midia relationship by its ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the User Midia."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "User Midia details retrieved successfully.",
@@ -2744,17 +2714,6 @@
                 ],
                 "summary": "Update User Midia",
                 "description": "Update User Midia by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the User Midia."
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2773,6 +2732,12 @@
                                         "minimum": 0,
                                         "maximum": 100,
                                         "description": "Score of the Midia from User."
+                                    },
+                                    "completed": {
+                                        "type": "string",
+                                        "example": "2025-01-15",
+                                        "format": "yyyy-mm-dd",
+                                        "description": "Completed Date of the Midia from User."
                                     }
                                 },
                                 "required": []
@@ -2826,7 +2791,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -2836,7 +2801,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_update"
+                                    "$ref": "#components/responses/417_update"
                                 }
                             }
                         }
@@ -2849,17 +2814,6 @@
                 ],
                 "summary": "Delete a User Midia",
                 "description": "Deletes a specific User Midia by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the User Midia to be deleted."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "User Midia deleted successfully.",
@@ -2903,7 +2857,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -2913,7 +2867,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_delete"
+                                    "$ref": "#components/responses/417_delete"
                                 }
                             }
                         }
@@ -2930,13 +2884,13 @@
                 "description": "Returns a list of Comments.",
                 "parameters": [
                     {
-                        "$ref": "#components/schemas/page"
+                        "$ref": "#components/parameters/page"
                     },
                     {
-                        "$ref": "#components/schemas/page_limit"
+                        "$ref": "#components/parameters/page_limit"
                     },
                     {
-                        "$ref": "#components/schemas/order_direction"
+                        "$ref": "#components/parameters/order_direction"
                     },
                     {
                         "name": "order_field",
@@ -3125,7 +3079,7 @@
                                             }
                                         },
                                         {
-                                            "$ref": "#/components/schemas/get_200_default"
+                                            "$ref": "#/components/responses/get_200_default"
                                         }
                                     ]
                                 }
@@ -3223,7 +3177,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -3233,7 +3187,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_insert"
+                                    "$ref": "#components/responses/417_insert"
                                 }
                             }
                         }
@@ -3242,23 +3196,23 @@
             }
         },
         "/comments/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "Unique identifier of the Comment."
+                }
+            ],
             "get": {
                 "tags": [
                     "Comments"
                 ],
                 "summary": "Get Comment details",
                 "description": "Retrieve the details of a specific Comment by its ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Comment."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Comment details retrieved successfully.",
@@ -3278,17 +3232,6 @@
                 ],
                 "summary": "Update Comment",
                 "description": "Update Comment by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Comment."
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -3355,7 +3298,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -3365,7 +3308,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_update"
+                                    "$ref": "#components/responses/417_update"
                                 }
                             }
                         }
@@ -3378,17 +3321,6 @@
                 ],
                 "summary": "Delete a Comment",
                 "description": "Deletes a specific Comment by their ID.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "description": "Unique identifier of the Comment to be deleted."
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Comment deleted successfully.",
@@ -3432,7 +3364,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -3442,7 +3374,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_delete"
+                                    "$ref": "#components/responses/417_delete"
                                 }
                             }
                         }
@@ -3525,7 +3457,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -3646,7 +3578,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/400_default"
+                                    "$ref": "#components/responses/400_default"
                                 }
                             }
                         }
@@ -3656,7 +3588,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#components/schemas/417_update"
+                                    "$ref": "#components/responses/417_update"
                                 }
                             }
                         }
@@ -3666,136 +3598,14 @@
         }
     },
     "components": {
+        "securitySchemes": {
+            "ApiKeyAuth":{
+                "type": "apiKey",
+                "in": "header",
+                "name": "ApiToken"
+            }
+        },
         "schemas": {
-            "completion": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "description": {
-                        "type": "string",
-                        "example": "Completed campaign mode"
-                    },
-                    "order": {
-                        "type": "integer",
-                        "example": 2
-                    },
-                    "created": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "updated": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "created_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    },
-                    "updated_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    }
-                }
-            },
-            "category": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "description": {
-                        "type": "string",
-                        "example": "Movies"
-                    },
-                    "created": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "updated": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "created_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    },
-                    "updated_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    },
-                    "midias": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#components/schemas/midia"
-                        }
-                    },
-                    "genres": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#components/schemas/genre"
-                        }
-                    }
-                }
-            },
-            "genre": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "id_category": {
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "description": {
-                        "type": "string",
-                        "example": "Action"
-                    },
-                    "category": {
-                        "type": "string",
-                        "example": "Movies"
-                    },
-                    "created": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "updated": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "created_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    },
-                    "updated_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    },
-                    "midias": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#components/schemas/midia"
-                        }
-                    }
-                }
-            },
             "user": {
                 "type": "object",
                 "properties": {
@@ -3949,69 +3759,6 @@
                     }
                 }
             },
-            "user_midia": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "example": 3
-                    },
-                    "id_user": {
-                        "type": "integer",
-                        "example": 2
-                    },
-                    "id_midia": {
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "id_completion": {
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "user": {
-                        "type": "string",
-                        "example": "John Doe"
-                    },
-                    "midia": {
-                        "type": "string",
-                        "example": "The Matrix"
-                    },
-                    "completion": {
-                        "type": "string",
-                        "example": "watched"
-                    },
-                    "score": {
-                        "type": "integer",
-                        "example": 85
-                    },
-                    "created": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "updated": {
-                        "type": "string",
-                        "format": "yyyy-mm-dd hh:ii:ss",
-                        "example": "2024-12-31 15:50:39"
-                    },
-                    "created_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    },
-                    "updated_formated": {
-                        "type": "string",
-                        "format": "dd/mm/yyyy hh:ii:ss",
-                        "example": "31/12/2024 15:50:39"
-                    },
-                    "comments": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#components/schemas/comment"
-                        }
-                    }
-                }
-            },
             "session": {
                 "type": "object",
                 "properties": {
@@ -4144,6 +3891,247 @@
                     }
                 }
             },
+            "user_midia": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "id_user": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "id_midia": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "id_completion": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user": {
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "midia": {
+                        "type": "string",
+                        "example": "The Matrix"
+                    },
+                    "completion": {
+                        "type": "string",
+                        "example": "watched"
+                    },
+                    "score": {
+                        "type": "integer",
+                        "example": 85
+                    },
+                    "completed": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "updated": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "completed_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy",
+                        "example": "31/12/2024"
+                    },
+                    "created_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    },
+                    "updated_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    },
+                    "comments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#components/schemas/comment"
+                        }
+                    }
+                }
+            },
+            "genre": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "id_category": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Action"
+                    },
+                    "category": {
+                        "type": "string",
+                        "example": "Movies"
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "updated": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "created_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    },
+                    "updated_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    },
+                    "midias": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#components/schemas/midia"
+                        }
+                    }
+                }
+            },
+            "category": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Movies"
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "updated": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "created_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    },
+                    "updated_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    },
+                    "midias": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#components/schemas/midia"
+                        }
+                    },
+                    "genres": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#components/schemas/genre"
+                        }
+                    }
+                }
+            },
+            "completion": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Completed campaign mode"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "updated": {
+                        "type": "string",
+                        "format": "yyyy-mm-dd hh:ii:ss",
+                        "example": "2024-12-31 15:50:39"
+                    },
+                    "created_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    },
+                    "updated_formated": {
+                        "type": "string",
+                        "format": "dd/mm/yyyy hh:ii:ss",
+                        "example": "31/12/2024 15:50:39"
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "page": {
+                "name": "page",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "default": null
+                },
+                "description": "Page number for pagination"
+            },
+            "page_limit": {
+                "name": "page_limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "default": null
+                },
+                "description": "Limit of itens on page"
+            },
+            "order_direction": {
+                "name": "order_direction",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "default": null,
+                    "enum": [
+                        null,
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "description": "Order direction(asc if null)"
+            }
+        },
+        "responses": {
             "get_200_default": {
                 "type": "object",
                 "properties": {
@@ -4324,41 +4312,6 @@
                         }
                     }
                 }
-            },
-            "page": {
-                "name": "page",
-                "in": "query",
-                "required": false,
-                "schema": {
-                    "type": "integer",
-                    "default": null
-                },
-                "description": "Page number for pagination"
-            },
-            "page_limit": {
-                "name": "page_limit",
-                "in": "query",
-                "required": false,
-                "schema": {
-                    "type": "integer",
-                    "default": null
-                },
-                "description": "Limit of itens on page"
-            },
-            "order_direction": {
-                "name": "order_direction",
-                "in": "query",
-                "required": false,
-                "schema": {
-                    "type": "string",
-                    "default": null,
-                    "enum": [
-                        null,
-                        "asc",
-                        "desc"
-                    ]
-                },
-                "description": "Order direction(asc if null)"
             }
         }
     }

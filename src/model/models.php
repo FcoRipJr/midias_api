@@ -6,6 +6,7 @@ class Models {
             "id" => null,
             "name" => null,
             "password" => null,
+            "token" => null,
             "status" => null,
             "created" => null,
             "updated" => null,
@@ -90,8 +91,10 @@ class Models {
             "midia" => null,
             "completion" => null,
             "score" => null,
+            "completed" => null,
             "created" => null,
             "updated" => null,
+            "completed_formated" => null,
             "created_formated" => null,
             "updated_formated" => null,
             "comments" => [],
@@ -202,6 +205,10 @@ class Models {
 
     public static function isInt($value) {
         return is_numeric($value) && floatval(intval($value)) === floatval($value);
+    }
+
+    public static function create_token($string = ""){
+        return md5(md5($string.date("Ymdhis")));
     }
 
 }

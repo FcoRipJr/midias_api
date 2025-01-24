@@ -92,8 +92,10 @@ class UserMidiaDAO {
                 $objeto->midia = $row->midia ?? null;
                 $objeto->completion = $row->completion ?? null;
                 $objeto->score = $row->score ?? null;
+                $objeto->completed = $row->completed ?? null;
                 $objeto->created = $row->created ?? null;
                 $objeto->updated = $row->updated ?? null;
+                $objeto->completed_formated = Models::convert_date($objeto->completed, true);
                 $objeto->created_formated = Models::convert_date($objeto->created);
                 $objeto->updated_formated = Models::convert_date($objeto->updated);
                 if($comments===true){
@@ -196,8 +198,10 @@ class UserMidiaDAO {
                 $objeto->midia = $row->midia ?? null;
                 $objeto->completion = $row->completion ?? null;
                 $objeto->score = $row->score ?? null;
+                $objeto->completed = $row->completed ?? null;
                 $objeto->created = $row->created ?? null;
                 $objeto->updated = $row->updated ?? null;
+                $objeto->completed_formated = Models::convert_date($objeto->completed, true);
                 $objeto->created_formated = Models::convert_date($objeto->created);
                 $objeto->updated_formated = Models::convert_date($objeto->updated);
                 if($comments===true){
@@ -212,13 +216,14 @@ class UserMidiaDAO {
     public static function insert($user_midia){
         try{
             $PDO = connect_db::active();
-            $sql = "INSERT INTO user_midia (id_user, id_midia, id_completion, score)
-                            VALUE (:id_user, :id_midia, :id_completion, :score);";
+            $sql = "INSERT INTO user_midia (id_user, id_midia, id_completion, score, completed)
+                            VALUE (:id_user, :id_midia, :id_completion, :score, :completed);";
             $stmt = $PDO->prepare($sql);
             $stmt->bindValue(":id_user", $user_midia->id_user ?? null);
             $stmt->bindValue(":id_midia", $user_midia->id_midia ?? null);
             $stmt->bindValue(":id_completion", $user_midia->id_completion ?? null);
             $stmt->bindValue(":score", $user_midia->score ?? null);
+            $stmt->bindValue(":completed", $user_midia->completed ?? null);
             $stmt->execute();
             $ReturnId = $PDO->lastInsertId();
             return $ReturnId;
@@ -233,11 +238,13 @@ class UserMidiaDAO {
             $sql = "update user_midia set 
                 id_completion = :id_completion,
                 score = :score,
+                completed = :completed,
                 updated = current_timestamp()
                 where id = :id ;";
             $stmt = $PDO->prepare($sql);
             $stmt->bindValue(":id_completion", $user_midia->id_completion);
             $stmt->bindValue(":score", $user_midia->score);
+            $stmt->bindValue(":completed", $user_midia->completed);
             $stmt->bindValue(":id", $user_midia->id);
             $stmt->execute();
             return ($stmt->rowCount() > 0) ? $stmt->rowCount() : false;

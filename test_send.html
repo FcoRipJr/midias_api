@@ -24,6 +24,10 @@
 <input type="text"id="url">
 
 <br>
+<label>token</label>
+<input type="text"id="token">
+
+<br>
 <label>Method</label>
 <select id="method">
     <option value="GET">GET</option>
@@ -57,14 +61,17 @@
     function send(){
         document.getElementById('response_code').value = ''
         document.getElementById('output').value = ''
-        let header = {
+        let request = {
             method: document.getElementById('method').value,
+            headers: {
+                ApiToken: document.getElementById('token').value,
+            },
             body: document.getElementById('content').value,
         }
-        if(header.method == "GET"){
-            delete header.body
+        if(request.method == "GET"){
+            delete request.body
         }
-        fetch(document.getElementById('url').value, header )
+        fetch(document.getElementById('url').value, request )
         .then((response) => {
             document.getElementById('response_code').value = response.status
             return response.json()

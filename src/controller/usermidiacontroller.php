@@ -38,6 +38,7 @@ class UserMidiaController {
             $user_midia->id_midia = $body_fields->id_midia;
             $user_midia->id_completion = $body_fields->id_completion ?? null;
             $user_midia->score = $body_fields->score ?? null;
+            $user_midia->completed = $body_fields->completed ?? null;
             $id = UserMidiaDAO::insert($user_midia);
             if($id){
                 $validation->code = $response->response_code;
@@ -64,6 +65,7 @@ class UserMidiaController {
             $user_midia = UserMidiaDAO::find($id);
             $user_midia->id_completion = $body_fields->id_completion ?? null;
             $user_midia->score = $body_fields->score ?? null;
+            $user_midia->completed = $body_fields->completed ?? null;
             $updated_rows = UserMidiaDAO::update($user_midia);
             if($updated_rows){
                 $validation->code = $response->response_code;
@@ -87,6 +89,7 @@ class UserMidiaController {
         $validate = true;
         $msg = '';
         $score = $body_fields->score??null;
+        $completed = $body_fields->completed??null;
         $id_completion = $body_fields->id_completion??null;
         if(empty($id)){
             $validate = false;
@@ -97,6 +100,9 @@ class UserMidiaController {
         } else if( (!empty($score)) && (intval($score)<0||intval($score)>100) ){
             $validate = false;
             $msg = 'score invalid';
+        } else if( (!empty($completed)) && ((bool)strtotime($completed)) ){
+            $validate = false;
+            $msg = 'completed invalid';
         } else if( (!empty($id_completion)) && (!Models::isInt($id_completion)) ){
             $validate = false;
             $msg = 'id_completion invalid';
@@ -146,6 +152,7 @@ class UserMidiaController {
         $id_midia = $body_fields->id_midia??null;
         $score = $body_fields->score??null;
         $id_completion = $body_fields->id_completion??null;
+        $completed = $body_fields->completed??null;
         if(empty($id_user)){
             $validate = false;
             $msg = 'id_user is required';
@@ -161,6 +168,9 @@ class UserMidiaController {
         } else if( (!empty($score)) && (intval($score)<0||intval($score)>100) ){
             $validate = false;
             $msg = 'score invalid';
+        } else if( (!empty($completed)) && ((bool)strtotime($completed)) ){
+            $validate = false;
+            $msg = 'completed invalid';
         } else if( (!empty($id_completion)) && (!Models::isInt($id_completion)) ){
             $validate = false;
             $msg = 'id_completion invalid';
