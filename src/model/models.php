@@ -90,8 +90,10 @@ class Models {
             "midia" => null,
             "completion" => null,
             "score" => null,
+            "completed" => null,
             "created" => null,
             "updated" => null,
+            "completed_formated" => null,
             "created_formated" => null,
             "updated_formated" => null,
             "comments" => [],
@@ -133,6 +135,29 @@ class Models {
             "updated" => null,
             "created_formated" => null,
             "updated_formated" => null,
+        ];
+    }
+
+    public static function oauth_client(){
+        return(object)[
+            "client_id" => null,
+            "client_secret" => null,
+            "redirect_uri" => null,
+            "grant_types" => null,
+            "scope" => null,
+        ];
+    }
+
+    public static function oauth_access_token(){
+        return(object)[
+            "access_token" => null,
+            "client_id" => null,
+            "id_user" => null,
+            "user" => null,
+            "scope" => null,
+            "expires" => null,
+            "expired" => null,
+            "expires_formated" => null,
         ];
     }
 
@@ -202,6 +227,10 @@ class Models {
 
     public static function isInt($value) {
         return is_numeric($value) && floatval(intval($value)) === floatval($value);
+    }
+
+    public static function create_token($string = ""){
+        return md5(md5($string.date("Ymdhis")));
     }
 
 }

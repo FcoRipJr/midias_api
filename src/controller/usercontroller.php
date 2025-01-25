@@ -248,4 +248,5 @@ class UserController {
         }
         return (object)["status"=>$validate,"msg"=>$msg]; 
     }
+
 }

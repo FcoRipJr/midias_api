@@ -235,6 +235,29 @@ class UserDAO {
         return $objeto;
     }
 
+    public static function find_token($token){
+        $objeto = Models::user();
+        try {
+            $PDO = connect_db::active();
+            $sql = "select * from user where token = '$token';";
+            $stmt = $PDO->prepare($sql);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_OBJ);
+            if (!empty($row)) {
+                $objeto->id = $row->id ?? null;
+                $objeto->name = $row->name ?? null;
+                $objeto->status = $row->status ?? null;
+                $objeto->created = $row->created ?? null;
+                $objeto->updated = $row->updated ?? null;
+                $objeto->created_formated = Models::convert_date($objeto->created);
+                $objeto->updated_formated = Models::convert_date($objeto->updated);
+            }
+        } catch(Exception $e) {
+            // throw new Exception($e->getMessage());
+        }
+        return $objeto;
+    }
+
     public static function insert($user){
         try{
             $PDO = connect_db::active();
