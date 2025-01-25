@@ -6,7 +6,6 @@ class Models {
             "id" => null,
             "name" => null,
             "password" => null,
-            "token" => null,
             "status" => null,
             "created" => null,
             "updated" => null,
@@ -136,6 +135,29 @@ class Models {
             "updated" => null,
             "created_formated" => null,
             "updated_formated" => null,
+        ];
+    }
+
+    public static function oauth_client(){
+        return(object)[
+            "client_id" => null,
+            "client_secret" => null,
+            "redirect_uri" => null,
+            "grant_types" => null,
+            "scope" => null,
+        ];
+    }
+
+    public static function oauth_access_token(){
+        return(object)[
+            "access_token" => null,
+            "client_id" => null,
+            "id_user" => null,
+            "user" => null,
+            "scope" => null,
+            "expires" => null,
+            "expired" => null,
+            "expires_formated" => null,
         ];
     }
 

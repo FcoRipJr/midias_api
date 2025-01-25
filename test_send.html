@@ -25,7 +25,7 @@
 
 <br>
 <label>token</label>
-<input type="text"id="token">
+<input type="text"id="token"  value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJkYWU3ZDk5MWRkZjNlYjUzNmU0ODg1YTdjMDk3N2U0OSIsImNsaWVudF9zZWNyZXQiOiI1YjE1Mzk0YjYyOTljMDQ5MWQwODIwMzlhMGRmY2EyNWIyNTk3NGIwOTExNTZkNGFmNzg1MWU4NTRmNWZlZDFhIn0=.jsv58JAsl5xR7kVIAFb35OtkI8RFhn1jfx3tJrKZlks=">
 
 <br>
 <label>Method</label>
@@ -64,7 +64,7 @@
         let request = {
             method: document.getElementById('method').value,
             headers: {
-                ApiToken: document.getElementById('token').value,
+                Authorization: `Bearer ${document.getElementById('token').value}`,
             },
             body: document.getElementById('content').value,
         }

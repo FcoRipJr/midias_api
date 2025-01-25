@@ -266,7 +266,6 @@ class UserDAO {
             $stmt = $PDO->prepare($sql);
             $stmt->bindValue(":name", $user->name ?? null);
             $stmt->bindValue(":password", $user->password ?? null);
-            $stmt->bindValue(":token",  Models::create_token($user->name));
             $stmt->execute();
             $ReturnId = $PDO->lastInsertId();
             return $ReturnId;

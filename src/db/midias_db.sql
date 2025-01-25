@@ -2,7 +2,6 @@ CREATE TABLE `user` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(100) NOT NULL,
     `password` text NULL DEFAULT NULL,
-    `token` text NULL DEFAULT NULL,
     `status` ENUM('created','active','inactive','suspended','deleted') NOT NULL DEFAULT 'created',
     `created` timestamp NOT NULL DEFAULT current_timestamp(),
     `updated` timestamp NULL DEFAULT NULL,
@@ -117,4 +116,25 @@ CREATE TABLE `comment` (
     CONSTRAINT `fk_comment_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
     CONSTRAINT `fk_comment_midia` FOREIGN KEY (`id_midia`) REFERENCES `midia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
     CONSTRAINT `fk_comment_session` FOREIGN KEY (`id_session`) REFERENCES `session` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE `oauth_clients` (
+    `client_id` VARCHAR(80) NOT NULL,
+    `client_secret` VARCHAR(80) NOT NULL,
+    `redirect_uri` VARCHAR(2000) DEFAULT NULL,
+    `grant_types` VARCHAR(80) DEFAULT NULL,
+    `scope` VARCHAR(100) DEFAULT NULL,
+    PRIMARY KEY (`client_id`)
+);
+
+CREATE TABLE oauth_access_tokens (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `access_token` text NOT NULL,
+    `client_id` VARCHAR(80) NOT NULL,
+    `id_user` int(11) DEFAULT NULL,
+    `expires` TIMESTAMP NOT NULL,
+    `scope` VARCHAR(100) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_token_client_idx` FOREIGN KEY (`client_id`) REFERENCES `oauth_clients` (`client_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT `fk_token_user_idx` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );

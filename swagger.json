@@ -15,10 +15,12 @@
             "description": "Localhost server"
         }
     ],
-    "security": [
-        {"ApiKeyAuth": []}
-    ],
+    "security": [],
     "tags": [
+        {
+            "name": "Auth",
+            "description": "Gathers endpoints to Authentication."
+        },
         {
             "name": "Users",
             "description": "Gathers endpoints to handle Users."
@@ -53,6 +55,155 @@
         }
     ],
     "paths": {
+        "/token": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Creates a Token",
+                "description": "Returns a token passing client_id and client_secret.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "client_id": {
+                                        "type": "string",
+                                        "example": "72e2653fd1073255d127dd93025f6149",
+                                        "description": "client_id of the Aplication."
+                                    },
+                                    "client_secret": {
+                                        "type": "string",
+                                        "example": "b0e8d76a579e2cce1f97acdf562b937faef6aa3d12b722d81f017934f26c7f5d",
+                                        "description": "client_secret of the Aplication."
+                                    },
+                                    "grant_type": {
+                                        "type": "string",
+                                        "example": "client_credentials",
+                                        "description": "grant_type of the Aplication."
+                                    }
+                                },
+                                "required": [
+                                    "client_id",
+                                    "client_secret"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Token created successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 200
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "token created"
+                                                },
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJkYWU3ZDk5MWRkZjNlYjUzNmU0ODg1YTdjMDk3N2U0OSIsImNsaWVudF9zZWNyZXQiOiI1YjE1Mzk0YjYyOTljMDQ5MWQwODIwMzlhMGRmY2EyNWIyNTk3NGIwOTExNTZkNGFmNzg1MWU4NTRmNWZlZDFhIn0=.jsv58JAsl5xR7kVIAFb35OtkI8RFhn1jfx3tJrKZlks="
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "Bearer"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid or missing credentials.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 401
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 401
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "{field} is required | invalid credentials"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "417": {
+                        "description": "Error occurred during Token creation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response_code": {
+                                            "type": "integer",
+                                            "example": 417
+                                        },
+                                        "response_data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "code": {
+                                                    "type": "integer",
+                                                    "example": 417
+                                                },
+                                                "msg": {
+                                                    "type": "string",
+                                                    "example": "error on creation"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/completions": {
             "get": {
                 "tags": [
@@ -3598,13 +3749,7 @@
         }
     },
     "components": {
-        "securitySchemes": {
-            "ApiKeyAuth":{
-                "type": "apiKey",
-                "in": "header",
-                "name": "ApiToken"
-            }
-        },
+        "securitySchemes": {},
         "schemas": {
             "user": {
                 "type": "object",
