@@ -51,18 +51,18 @@ class OAuthController {
     }
 
     public static function check_Autorization($Autorization){
-        $response = (object) ["status"=>false, "code"=>401, "msg" => "Autorization token is missing"];
+        $response = (object) ["status"=>false, "code"=>401, "msg" => "Authorization token is missing"];
         $env = parse_ini_file(__DIR__."/../../.env");
         $access_token = str_replace(($env["TOKEN_TYPE"]." "),"",$Autorization);
         if(!empty($access_token)){
             $oauth_access_token = OAuthDAO::find_oauth_access_token($access_token);
             if(!empty($oauth_access_token->access_token??null)){
                 if($oauth_access_token->expired??true){
-                    $response->msg = "Autorization token expired";
+                    $response->msg = "Authorization token expired";
                 } else {
                     $response->code = 200;
                     $response->status = true;
-                    $response->msg = "Autorization token valid";
+                    $response->msg = "Authorization token valid";
                 }
             }
         }
