@@ -132,6 +132,11 @@
                                                 "token_type": {
                                                     "type": "string",
                                                     "example": "Bearer"
+                                                },
+                                                "expires": {
+                                                    "type": "string",
+                                                    "format": "yyyy-mm-dd hh:ii:ss",
+                                                    "example": "2024-12-31 15:50:39"
                                                 }
                                             }
                                         }

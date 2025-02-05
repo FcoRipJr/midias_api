@@ -19,6 +19,7 @@ class OAuthController {
                 $validation->code = $response->response_code;
                 $validation->msg = "token created";
                 $validation->token = $oauth_access_token->access_token;
+                $validation->expires = $oauth_access_token->expires;
                 $validation->token_type = $env["TOKEN_TYPE"];
                 $response->response_data = $validation;
             } else {

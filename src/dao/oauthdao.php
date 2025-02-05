@@ -79,7 +79,7 @@ class OAuthDAO {
             $stmt->execute();
             return ($stmt->rowCount() > 0) ? $stmt->rowCount() : false;
         } catch(Exception $e) {
-            throw new Exception($e->getMessage());
+            // throw new Exception($e->getMessage());
             return false;
         }
     }
