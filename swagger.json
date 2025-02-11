@@ -178,6 +178,9 @@
                             }
                         }
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Token creation.",
                         "content": {
@@ -210,6 +213,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -279,6 +285,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -319,6 +331,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -407,6 +425,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -469,6 +493,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -599,6 +629,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -651,6 +687,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -820,6 +862,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -908,6 +956,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during User creation.",
                         "content": {
@@ -917,6 +968,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -989,6 +1043,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -1084,6 +1144,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during User update.",
                         "content": {
@@ -1093,6 +1156,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -1153,6 +1219,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during deletion.",
                         "content": {
@@ -1162,6 +1231,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -1394,6 +1466,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -1511,6 +1589,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Midia creation.",
                         "content": {
@@ -1520,6 +1601,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -1592,6 +1676,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -1698,6 +1788,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Midia update.",
                         "content": {
@@ -1707,6 +1800,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -1767,6 +1863,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during deletion.",
                         "content": {
@@ -1776,6 +1875,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -1887,6 +1989,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Midia creation.",
                         "content": {
@@ -1896,6 +2001,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -2009,6 +2117,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Genre from Midia update.",
                         "content": {
@@ -2018,6 +2129,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -2078,6 +2192,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during deletion.",
                         "content": {
@@ -2087,6 +2204,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -2284,6 +2404,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -2385,6 +2511,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Session creation.",
                         "content": {
@@ -2394,6 +2523,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -2429,6 +2561,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -2519,6 +2657,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Session update.",
                         "content": {
@@ -2528,6 +2669,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -2588,6 +2732,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during deletion.",
                         "content": {
@@ -2597,6 +2744,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -2791,6 +2941,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -2898,6 +3054,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Session creation.",
                         "content": {
@@ -2907,6 +3066,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -2947,6 +3109,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -3041,6 +3209,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during User Midia update.",
                         "content": {
@@ -3050,6 +3221,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -3110,6 +3284,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during deletion.",
                         "content": {
@@ -3119,6 +3296,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -3336,6 +3516,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -3436,6 +3622,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Comment creation.",
                         "content": {
@@ -3445,6 +3634,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -3480,6 +3672,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -3563,6 +3761,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during Comment update.",
                         "content": {
@@ -3572,6 +3773,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             },
@@ -3632,6 +3836,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during deletion.",
                         "content": {
@@ -3641,6 +3848,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -3849,6 +4059,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedError"
                     },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
                     "417": {
                         "description": "Error occurred during User's Password update.",
                         "content": {
@@ -3858,6 +4071,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalError"
                     }
                 }
             }
@@ -4408,6 +4624,26 @@
                     }
                 }
             },
+            "NotFound": {
+                "description": "Page Not Found.",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#components/responses/404_default"
+                        }
+                    }
+                }
+            },
+            "InternalError": {
+                "description": "Internal Server Error.",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#components/responses/500_default"
+                        }
+                    }
+                }
+            },
             "get_200_default": {
                 "type": "object",
                 "properties": {
@@ -4537,6 +4773,32 @@
                     }
                 }
             },
+            "404_default": {
+                "type": "object",
+                "properties": {
+                    "response_code": {
+                        "type": "integer",
+                        "example": 404
+                    },
+                    "response_data": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "boolean",
+                                "example": false
+                            },
+                            "code": {
+                                "type": "integer",
+                                "example": 404
+                            },
+                            "msg": {
+                                "type": "string",
+                                "example": "page not found"
+                            }
+                        }
+                    }
+                }
+            },
             "417_insert": {
                 "type": "object",
                 "properties": {
@@ -4610,6 +4872,32 @@
                             "msg": {
                                 "type": "string",
                                 "example": "error on delete"
+                            }
+                        }
+                    }
+                }
+            },
+            "500_default": {
+                "type": "object",
+                "properties": {
+                    "response_code": {
+                        "type": "integer",
+                        "example": 500
+                    },
+                    "response_data": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "boolean",
+                                "example": false
+                            },
+                            "code": {
+                                "type": "integer",
+                                "example": 500
+                            },
+                            "msg": {
+                                "type": "string",
+                                "example": "internal error"
                             }
                         }
                     }
