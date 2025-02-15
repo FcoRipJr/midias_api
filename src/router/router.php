@@ -6,7 +6,7 @@ class Router {
         $http_response_code = 404;
         $http_response = (object)[];
         try {
-            if ($method == 'POST' && $uri == '/midias_api/token'){
+            if ($method == 'POST' && $uri == '/token'){
                 $response = OAuthController::post($body_fields);
                 $http_response_code = $response->response_code;
                 $http_response = $response->response_data;
@@ -19,207 +19,208 @@ class Router {
                     $http_response_code = $http_response->code;
                 } else {
                     switch ($method | $uri) {
-                        ///midias_api/completions
-                        case ($method == 'GET' && $uri == '/midias_api/completions'):
+                        ///completions
+                        case ($method == 'GET' && $uri == '/completions'):
                             $response = CompletionController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/completions\/\d+/', $uri)):
-                            $response = CompletionController::find(self::get_id_uri($uri, '/midias_api/completions/'),$get_fields);
+                        case ($method == 'GET' && preg_match('/\/completions\/\d+/', $uri)):
+                            $response = CompletionController::find(self::get_id_uri($uri, '/completions/'),$get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
                     
-                        ///midias_api/category
-                        case ($method == 'GET' && $uri == '/midias_api/categories'):
+                        ///category
+                        case ($method == 'GET' && $uri == '/categories'):
                             $response = CategoryController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/categories\/\d+/', $uri)):
-                            $response = CategoryController::find(self::get_id_uri($uri, '/midias_api/categories/'),$get_fields);
+                        case ($method == 'GET' && preg_match('/\/categories\/\d+/', $uri)):
+                            $response = CategoryController::find(self::get_id_uri($uri, '/categories/'),$get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
         
-                        ///midias_api/genres
-                        case ($method == 'GET' && $uri == '/midias_api/genres'):
+                        ///genres
+                        case ($method == 'GET' && $uri == '/genres'):
                             $response = GenreController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/genres\/\d+/', $uri)):
-                            $response = GenreController::find(self::get_id_uri($uri, '/midias_api/genres/'),$get_fields);
+                        case ($method == 'GET' && preg_match('/\/genres\/\d+/', $uri)):
+                            $response = GenreController::find(self::get_id_uri($uri, '/genres/'),$get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
                     
-                        ///midias_api/users
-                        case ($method == 'GET' && $uri == '/midias_api/users'):
+                        ///users
+                        case ($method == 'GET' && $uri == '/users'):
                             $response = UserController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/users\/\d+/', $uri)):
-                            $response = UserController::find(self::get_id_uri($uri, '/midias_api/users/'), $get_fields);
+                        case ($method == 'GET' && preg_match('/\/users\/\d+/', $uri)):
+                            $response = UserController::find(self::get_id_uri($uri, '/users/'), $get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'POST' && $uri == '/midias_api/users'):
+                        case ($method == 'POST' && $uri == '/users'):
                             $response = UserController::post($body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'PUT' && preg_match('/\/midias_api\/users\/\d+/', $uri)):
-                            $response = UserController::put(self::get_id_uri($uri, '/midias_api/users/'),$body_fields);
+                        case ($method == 'PUT' && preg_match('/\/users\/\d+/', $uri)):
+                            $response = UserController::put(self::get_id_uri($uri, '/users/'),$body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'DELETE' && preg_match('/\/midias_api\/users\/\d+/', $uri)):
-                            $response = UserController::delete(self::get_id_uri($uri, '/midias_api/users/'));
+                        case ($method == 'DELETE' && preg_match('/\/users\/\d+/', $uri)):
+                            $response = UserController::delete(self::get_id_uri($uri, '/users/'));
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
                     
-                        ///midias_api/midias
-                        case ($method == 'POST' && preg_match('/\/midias_api\/midias\/\d+\/genres/', $uri)):
-                            $response = MidiaController::post_genre(self::get_id_uri($uri, ['/midias_api/midias/','/genres']), $body_fields);
+                        ///midias
+                        case ($method == 'POST' && preg_match('/\/midias\/\d+\/genres/', $uri)):
+                            $response = MidiaController::post_genre(self::get_id_uri($uri, ['/midias/','/genres']), $body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'PUT' && preg_match('/\/midias_api\/midias\/\d+\/genres\/\d+/', $uri)):
-                            $ids = explode('/genres/',self::get_id_uri($uri, '/midias_api/midias/'));
+                        case ($method == 'PUT' && preg_match('/\/midias\/\d+\/genres\/\d+/', $uri)):
+                            $ids = explode('/genres/',self::get_id_uri($uri, '/midias/'));
                             $response = MidiaController::put_genre($ids[0],$ids[1],$body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'DELETE' && preg_match('/\/midias_api\/midias\/\d+\/genres\/\d+/', $uri)):
-                            $ids = explode('/genres/',self::get_id_uri($uri, '/midias_api/midias/'));
+                        case ($method == 'DELETE' && preg_match('/\/midias\/\d+\/genres\/\d+/', $uri)):
+                            $ids = explode('/genres/',self::get_id_uri($uri, '/midias/'));
                             $response = MidiaController::delete_genre($ids[0],$ids[1]);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && $uri == '/midias_api/midias'):
+                        case ($method == 'GET' && $uri == '/midias'):
                             $response = MidiaController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/midias\/\d+/', $uri)):
-                            $response = MidiaController::find(self::get_id_uri($uri, '/midias_api/midias/'),$get_fields);
+                        case ($method == 'GET' && preg_match('/\/midias\/\d+/', $uri)):
+                            $response = MidiaController::find(self::get_id_uri($uri, '/midias/'),$get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'POST' && $uri == '/midias_api/midias'):
+                        case ($method == 'POST' && $uri == '/midias'):
                             $response = MidiaController::post($body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'PUT' && preg_match('/\/midias_api\/midias\/\d+/', $uri)):
-                            $response = MidiaController::put(self::get_id_uri($uri, '/midias_api/midias/'),$body_fields);
+                        case ($method == 'PUT' && preg_match('/\/midias\/\d+/', $uri)):
+                            $response = MidiaController::put(self::get_id_uri($uri, '/midias/'),$body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'DELETE' && preg_match('/\/midias_api\/midias\/\d+/', $uri)):
-                            $response = MidiaController::delete(self::get_id_uri($uri, '/midias_api/midias/'));
+                        case ($method == 'DELETE' && preg_match('/\/midias\/\d+/', $uri)):
+                            $response = MidiaController::delete(self::get_id_uri($uri, '/midias/'));
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
         
-                        ///midias_api/sessions
-                        case ($method == 'GET' && $uri == '/midias_api/sessions'):
+                        ///sessions
+                        case ($method == 'GET' && $uri == '/sessions'):
                             $response = SessionController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/sessions\/\d+/', $uri)):
-                            $response = SessionController::find(self::get_id_uri($uri, '/midias_api/sessions/'),$get_fields);
+                        case ($method == 'GET' && preg_match('/\/sessions\/\d+/', $uri)):
+                            $response = SessionController::find(self::get_id_uri($uri, '/sessions/'),$get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'POST' && $uri == '/midias_api/sessions'):
+                        case ($method == 'POST' && $uri == '/sessions'):
                             $response = SessionController::post($body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'PUT' && preg_match('/\/midias_api\/sessions\/\d+/', $uri)):
-                            $response = SessionController::put(self::get_id_uri($uri, '/midias_api/sessions/'),$body_fields);
+                        case ($method == 'PUT' && preg_match('/\/sessions\/\d+/', $uri)):
+                            $response = SessionController::put(self::get_id_uri($uri, '/sessions/'),$body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'DELETE' && preg_match('/\/midias_api\/sessions\/\d+/', $uri)):
-                            $response = SessionController::delete(self::get_id_uri($uri, '/midias_api/sessions/'));
+                        case ($method == 'DELETE' && preg_match('/\/sessions\/\d+/', $uri)):
+                            $response = SessionController::delete(self::get_id_uri($uri, '/sessions/'));
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
         
-                        ///midias_api/user_midia
-                        case ($method == 'GET' && $uri == '/midias_api/user_midia'):
+                        ///user_midia
+                        case ($method == 'GET' && $uri == '/user_midia'):
                             $response = UserMidiaController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/user_midia\/\d+/', $uri)):
-                            $response = UserMidiaController::find(self::get_id_uri($uri, '/midias_api/user_midia/'),$get_fields);
+                        case ($method == 'GET' && preg_match('/\/user_midia\/\d+/', $uri)):
+                            $response = UserMidiaController::find(self::get_id_uri($uri, '/user_midia/'),$get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'POST' && $uri == '/midias_api/user_midia'):
+                        case ($method == 'POST' && $uri == '/user_midia'):
                             $response = UserMidiaController::post($body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'PUT' && preg_match('/\/midias_api\/user_midia\/\d+/', $uri)):
-                            $response = UserMidiaController::put(self::get_id_uri($uri, '/midias_api/user_midia/'),$body_fields);
+                        case ($method == 'PUT' && preg_match('/\/user_midia\/\d+/', $uri)):
+                            $response = UserMidiaController::put(self::get_id_uri($uri, '/user_midia/'),$body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'DELETE' && preg_match('/\/midias_api\/user_midia\/\d+/', $uri)):
-                            $response = UserMidiaController::delete(self::get_id_uri($uri, '/midias_api/user_midia/'));
+                        case ($method == 'DELETE' && preg_match('/\/user_midia\/\d+/', $uri)):
+                            $response = UserMidiaController::delete(self::get_id_uri($uri, '/user_midia/'));
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
         
-                        ///midias_api/comments
-                        case ($method == 'GET' && $uri == '/midias_api/comments'):
+                        ///comments
+                        case ($method == 'GET' && $uri == '/comments'):
                             $response = CommentController::get($get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'GET' && preg_match('/\/midias_api\/comments\/\d+/', $uri)):
-                            $response = CommentController::find(self::get_id_uri($uri, '/midias_api/comments/'),$get_fields);
+                        case ($method == 'GET' && preg_match('/\/comments\/\d+/', $uri)):
+                            $response = CommentController::find(self::get_id_uri($uri, '/comments/'),$get_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'POST' && $uri == '/midias_api/comments'):
+                        case ($method == 'POST' && $uri == '/comments'):
                             $response = CommentController::post($body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'PUT' && preg_match('/\/midias_api\/comments\/\d+/', $uri)):
-                            $response = CommentController::put(self::get_id_uri($uri, '/midias_api/comments/'),$body_fields);
+                        case ($method == 'PUT' && preg_match('/\/comments\/\d+/', $uri)):
+                            $response = CommentController::put(self::get_id_uri($uri, '/comments/'),$body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        case ($method == 'DELETE' && preg_match('/\/midias_api\/comments\/\d+/', $uri)):
-                            $response = CommentController::delete(self::get_id_uri($uri, '/midias_api/comments/'));
+                        case ($method == 'DELETE' && preg_match('/\/comments\/\d+/', $uri)):
+                            $response = CommentController::delete(self::get_id_uri($uri, '/comments/'));
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
         
-                        ///midias_api/login
-                        case ($method == 'POST' && $uri == '/midias_api/login'):
+                        ///login
+                        case ($method == 'POST' && $uri == '/login'):
                             $response = UserController::login($body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
-                        ///midias_api/change_password
-                        case ($method == 'PUT' && $uri == '/midias_api/change_password'):
+                        ///change_password
+                        case ($method == 'PUT' && $uri == '/change_password'):
                             $response = UserController::change_password($body_fields);
                             $http_response_code = $response->response_code;
                             $http_response = $response->response_data;
                             break;
                         default:
+                            $http_response->uri = $uri;
                             $http_response->msg = "page not found";
                             break;
                     }
@@ -246,6 +247,9 @@ class Router {
         }
         while ($uri[strlen($uri)-1]=="/") {
             $uri = substr($uri, 0, -1);
+        }
+        if(str_contains($uri,"/midias_api")){
+            $uri = explode("/midias_api",$uri)[1];
         }
         return $uri;
     }
