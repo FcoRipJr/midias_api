@@ -1,5 +1,6 @@
 RewriteEngine On
-RewriteBase /midias_api
+RewriteBase /midias_api/
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ index.php [QSA,L]
+RewriteRule ^(.*)$ index.php [QSA,L]

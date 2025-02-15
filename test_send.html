@@ -61,6 +61,7 @@
     function send(){
         document.getElementById('response_code').value = ''
         document.getElementById('output').value = ''
+        let url = document.getElementById('url').value
         let request = {
             method: document.getElementById('method').value,
             headers: {
@@ -71,7 +72,7 @@
         if(request.method == "GET"){
             delete request.body
         }
-        fetch(document.getElementById('url').value, request )
+        fetch(url, request )
         .then((response) => {
             document.getElementById('response_code').value = response.status
             return response.json()
