@@ -101,7 +101,8 @@ class OAuthDAO {
         $header = base64_encode(json_encode(['alg'=>'HS256','typ'=>'JWT']));
         $payload = base64_encode(json_encode($request_body));
         $signature = base64_encode(hash_hmac('sha256', "$header.$payload", $env["JWT_KEY"], true));
-        return "$header.$payload.$signature";
+        $stamp = base64_encode(date("Ymdhis"));
+        return "$header.$payload.$signature.$stamp";
     }
 
 }
